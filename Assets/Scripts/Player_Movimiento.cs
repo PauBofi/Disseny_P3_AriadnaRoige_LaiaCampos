@@ -21,6 +21,10 @@ public class Player_Movimiento : MonoBehaviour
     private int Health = 10;
     private int Mana = 30;
 
+    public Transform wallPosition;
+    private bool Walled;
+
+
     void Start()
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -30,6 +34,8 @@ public class Player_Movimiento : MonoBehaviour
     void Update()
     {
         Animator.SetBool("jumpling", Grounded != true);
+        Animator.SetBool("jumpling", Walled != true);
+
 
         Horizontal = Input.GetAxisRaw("Horizontal");
 
@@ -65,8 +71,19 @@ public class Player_Movimiento : MonoBehaviour
             Shoot();
             LastShoot = Time.time;
         }
-    }
 
+        Debug.DrawRay(wallPosition.position, Vector3.right * 0.4f, Color.red);
+        if (Physics2D.Raycast(wallPosition.position, Vector3.right, 0.4f))
+        {
+            Walled = true;
+        }
+        else
+        {
+            Walled = false;
+        }
+
+    }
+    
     private void Jump()
     {
         Rigidbody2D.AddForce(Vector2.up * JumpForce);
@@ -110,6 +127,8 @@ public class Player_Movimiento : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawRay(groundPosition.position, Vector2.down * 0.4f);
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(wallPosition.position, Vector2.down * 0.4f);
     }
 
     //Vida
