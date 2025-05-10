@@ -100,9 +100,9 @@ TextureImporter:
       name: Nina_tileset_0
       rect:
         serializedVersion: 2
-        x: 442
+        x: 430
         y: 1871
-        width: 65
+        width: 90
         height: 172
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -121,9 +121,9 @@ TextureImporter:
       name: Nina_tileset_2
       rect:
         serializedVersion: 2
-        x: 699
+        x: 689
         y: 1871
-        width: 66
+        width: 90
         height: 172
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -142,9 +142,9 @@ TextureImporter:
       name: Nina_tileset_3
       rect:
         serializedVersion: 2
-        x: 950
+        x: 949
         y: 1871
-        width: 73
+        width: 90
         height: 172
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -165,7 +165,7 @@ TextureImporter:
         serializedVersion: 2
         x: 1207
         y: 1871
-        width: 73
+        width: 90
         height: 172
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -186,7 +186,7 @@ TextureImporter:
         serializedVersion: 2
         x: 1463
         y: 1871
-        width: 74
+        width: 90
         height: 172
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -207,7 +207,7 @@ TextureImporter:
         serializedVersion: 2
         x: 1722
         y: 1871
-        width: 73
+        width: 90
         height: 172
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -373,9 +373,9 @@ TextureImporter:
       name: Nina_tileset_25
       rect:
         serializedVersion: 2
-        x: 429
+        x: 411
         y: 1262
-        width: 97
+        width: 127
         height: 169
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -394,10 +394,10 @@ TextureImporter:
       name: Nina_tileset_26
       rect:
         serializedVersion: 2
-        x: 682
+        x: 669
         y: 1262
-        width: 92
-        height: 167
+        width: 127
+        height: 169
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -418,7 +418,7 @@ TextureImporter:
         x: 926
         y: 1262
         width: 127
-        height: 164
+        height: 169
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -436,10 +436,10 @@ TextureImporter:
       name: Nina_tileset_28
       rect:
         serializedVersion: 2
-        x: 1203
+        x: 1193
         y: 1262
-        width: 116
-        height: 164
+        width: 127
+        height: 169
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -457,9 +457,9 @@ TextureImporter:
       name: Nina_tileset_29
       rect:
         serializedVersion: 2
-        x: 1482
+        x: 1459
         y: 1262
-        width: 92
+        width: 127
         height: 169
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -478,9 +478,9 @@ TextureImporter:
       name: Nina_tileset_30
       rect:
         serializedVersion: 2
-        x: 1711
+        x: 1701
         y: 1262
-        width: 107
+        width: 127
         height: 169
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -501,8 +501,8 @@ TextureImporter:
         serializedVersion: 2
         x: 1965
         y: 1262
-        width: 123
-        height: 167
+        width: 127
+        height: 169
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -520,10 +520,10 @@ TextureImporter:
       name: Nina_tileset_32
       rect:
         serializedVersion: 2
-        x: 2234
+        x: 2221
         y: 1262
-        width: 88
-        height: 167
+        width: 127
+        height: 169
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -541,9 +541,9 @@ TextureImporter:
       name: Nina_tileset_38
       rect:
         serializedVersion: 2
-        x: 452
+        x: 424
         y: 967
-        width: 68
+        width: 125
         height: 173
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -562,9 +562,9 @@ TextureImporter:
       name: Nina_tileset_39
       rect:
         serializedVersion: 2
-        x: 713
+        x: 683
         y: 967
-        width: 66
+        width: 125
         height: 173
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -583,9 +583,9 @@ TextureImporter:
       name: Nina_tileset_40
       rect:
         serializedVersion: 2
-        x: 968
+        x: 944
         y: 967
-        width: 98
+        width: 125
         height: 173
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -604,9 +604,9 @@ TextureImporter:
       name: Nina_tileset_41
       rect:
         serializedVersion: 2
-        x: 1223
+        x: 1203
         y: 967
-        width: 103
+        width: 125
         height: 173
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -625,9 +625,9 @@ TextureImporter:
       name: Nina_tileset_42
       rect:
         serializedVersion: 2
-        x: 1477
+        x: 1459
         y: 967
-        width: 104
+        width: 125
         height: 173
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -646,9 +646,9 @@ TextureImporter:
       name: Nina_tileset_43
       rect:
         serializedVersion: 2
-        x: 1740
+        x: 1717
         y: 967
-        width: 101
+        width: 125
         height: 173
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -667,9 +667,9 @@ TextureImporter:
       name: Nina_tileset_44
       rect:
         serializedVersion: 2
-        x: 2004
+        x: 1977
         y: 967
-        width: 97
+        width: 125
         height: 173
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -688,10 +688,10 @@ TextureImporter:
       name: Nina_tileset_53
       rect:
         serializedVersion: 2
-        x: 442
+        x: 427
         y: 694
-        width: 80
-        height: 150
+        width: 97
+        height: 212
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -709,10 +709,10 @@ TextureImporter:
       name: Nina_tileset_54
       rect:
         serializedVersion: 2
-        x: 705
+        x: 691
         y: 694
-        width: 63
-        height: 129
+        width: 97
+        height: 212
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -730,10 +730,10 @@ TextureImporter:
       name: Nina_tileset_55
       rect:
         serializedVersion: 2
-        x: 982
-        y: 721
-        width: 83
-        height: 160
+        x: 979
+        y: 694
+        width: 97
+        height: 212
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -751,10 +751,10 @@ TextureImporter:
       name: Nina_tileset_56
       rect:
         serializedVersion: 2
-        x: 1253
-        y: 739
-        width: 61
-        height: 166
+        x: 1232
+        y: 694
+        width: 97
+        height: 212
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -773,9 +773,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1494
-        y: 758
+        y: 694
         width: 97
-        height: 147
+        height: 212
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -794,9 +794,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1754
-        y: 706
-        width: 95
-        height: 175
+        y: 694
+        width: 97
+        height: 212
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -814,10 +814,10 @@ TextureImporter:
       name: Nina_tileset_59
       rect:
         serializedVersion: 2
-        x: 2023
-        y: 694
-        width: 88
-        height: 161
+        x: 2019
+        y: 695
+        width: 97
+        height: 212
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -835,10 +835,10 @@ TextureImporter:
       name: Nina_tileset_60
       rect:
         serializedVersion: 2
-        x: 2279
+        x: 2264
         y: 694
-        width: 68
-        height: 153
+        width: 97
+        height: 212
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -856,9 +856,9 @@ TextureImporter:
       name: Nina_tileset_65
       rect:
         serializedVersion: 2
-        x: 417
+        x: 397
         y: 450
-        width: 88
+        width: 147
         height: 159
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -877,10 +877,10 @@ TextureImporter:
       name: Nina_tileset_66
       rect:
         serializedVersion: 2
-        x: 676
+        x: 652
         y: 450
-        width: 89
-        height: 154
+        width: 147
+        height: 159
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -898,10 +898,10 @@ TextureImporter:
       name: Nina_tileset_67
       rect:
         serializedVersion: 2
-        x: 960
+        x: 914
         y: 450
-        width: 65
-        height: 127
+        width: 147
+        height: 159
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -919,10 +919,10 @@ TextureImporter:
       name: Nina_tileset_68
       rect:
         serializedVersion: 2
-        x: 1222
+        x: 1201
         y: 450
-        width: 105
-        height: 73
+        width: 147
+        height: 159
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -943,7 +943,7 @@ TextureImporter:
         x: 1479
         y: 449
         width: 147
-        height: 30
+        height: 159
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
