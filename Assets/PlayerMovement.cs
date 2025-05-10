@@ -35,6 +35,13 @@ public class PlayerMovement : MonoBehaviour
     [Header("WallMovement")]
     public float wallSlideSpeed = 2f;
     bool isWallSliding;
+
+    bool isWallJumping;
+    float wallJumpDirection;
+    float wallJumpTime = 0.5f;
+    float wallJumpTimer;
+    public Vector2 wallJumpPower = new Vector2(5f, 10f);
+
     void Start()
     {
         
@@ -43,11 +50,15 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(horizontalMovement * moveSpeed, rb.velocity.y);
         GroundCheck();
         ProcessGravity();
         ProcessWallSlide();
-        Flip();
+        ProcessWallJump();
+        if (!isWallJumping)
+        {
+            rb.velocity = new Vector2(horizontalMovement * moveSpeed, rb.velocity.y);
+            Flip();
+        }
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -65,6 +76,22 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
                 jumpsRemaining--;
             }
+        }
+
+        //wallJump
+        if (context.performed && wallJumpTimer > 0f)
+        {
+            isWallJumping = true;
+            rb.velocity = new Vector2(wallJumpDirection * wallJumpPower.x, wallJumpPower.y);
+            wallJumpTimer = 0f;
+
+            //force flip if not looking at right direction
+            if (transform.localScale.x != wallJumpDirection)
+            {
+                Flip();
+            }
+
+            Invoke(nameof(CancelWallJump), wallJumpTime + 0.1f); //0.1 seconds between jumps
         }
     }
 
@@ -112,6 +139,27 @@ public class PlayerMovement : MonoBehaviour
         {
             isWallSliding = false;
         }
+    }
+
+    private void ProcessWallJump()
+    {
+        if (isWallSliding)
+        {
+            isWallJumping = false;
+            wallJumpDirection = -transform.localScale.x;
+            wallJumpTimer = wallJumpTime;
+
+            CancelInvoke(nameof(CancelWallJump));
+        }
+        else if (wallJumpTimer > 0f)
+        {
+            wallJumpTimer -= Time.deltaTime;
+        }
+    }
+
+    private void CancelWallJump()
+    {
+        isWallJumping = false;
     }
 
     public void Move(InputAction.CallbackContext context)
