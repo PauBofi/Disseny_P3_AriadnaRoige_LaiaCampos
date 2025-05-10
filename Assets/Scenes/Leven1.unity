@@ -27059,7 +27059,7 @@ CompositeCollider2D:
       - {x: 73, y: -59.68747}
       - {x: 72.99997, y: -59.625}
       - {x: 72.12499, y: -59.625004}
-  m_VertexDistance: 0.0005
+  m_VertexDistance: 0.007
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 1441070358}
@@ -28973,6 +28973,7 @@ MonoBehaviour:
     m_Bits: 64
   wallSlideSpeed: 2
   wallJumpPower: {x: 5, y: 10}
+  healthbar: {fileID: 0}
 --- !u!114 &1898095138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29160,6 +29161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7277944891960904392, guid: 4b929b03668aed249932cf74e457496c, type: 3}
+  manabar: {fileID: 1963162312}
   bulletSpeed: 5
 --- !u!70 &1898095142
 CapsuleCollider2D:
