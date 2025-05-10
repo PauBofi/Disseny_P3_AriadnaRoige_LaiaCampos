@@ -23215,6 +23215,7 @@ GameObject:
   - component: {fileID: 1898095138}
   - component: {fileID: 1898095137}
   - component: {fileID: 1898095141}
+  - component: {fileID: 1898095142}
   m_Layer: 0
   m_Name: Player (1)
   m_TagString: Untagged
@@ -23531,6 +23532,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnPoint: {fileID: 239038818}
   deathYLevel: -62
+--- !u!114 &1898095142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898095130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08e49b67b23a2ee43a9479e63cfbee7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 7277944891960904392, guid: 4b929b03668aed249932cf74e457496c, type: 3}
+  bulletSpeed: 50
 --- !u!1 &1928232323
 GameObject:
   m_ObjectHideFlags: 0
