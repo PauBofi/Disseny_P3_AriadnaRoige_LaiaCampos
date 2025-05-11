@@ -1,10 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
-{
-    // Start is called before the first frame update
+{    
     public Rigidbody2D rb;
     bool isFacingRight = true;
     [Header("Movement")]
@@ -42,9 +42,20 @@ public class PlayerMovement : MonoBehaviour
     float wallJumpTimer;
     public Vector2 wallJumpPower = new Vector2(5f, 10f);
 
+    [Header("Animator")]
+    Animator animator;
+
+    [Header("Health Bar HUD")]
+    [SerializeField] Healthbar healthbar;
+    private int Health = 10;
+    /*Health = Health - 1;
+      healthbar.SetHealth(Health);*/
+
+
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -58,7 +69,16 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(horizontalMovement * moveSpeed, rb.velocity.y);
             Flip();
+            //animator.SetFloat("xVelocity", Math.Abs(rb.velocity.x));
+            //animator.SetFloat("yVelocity", rb.velocity.y);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        rb.velocity = new Vector2(horizontalMovement * moveSpeed, rb.velocity.y);
+        animator.SetFloat("xVelocity", Math.Abs(rb.velocity.x));
+        animator.SetFloat("yVelocity", rb.velocity.y);
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -100,12 +120,14 @@ public class PlayerMovement : MonoBehaviour
         if (Physics2D.OverlapBox(groundCheckPos.position, groundCheckSize, 0, groundLayer))
         {
             jumpsRemaining = maxJumps;
-            isGrounded = true;
+            isGrounded = true;            
         }
 
         else
         {
-            isGrounded = false;  
+            isGrounded = false;
+            animator.SetBool("isJumping", !isGrounded);
+            Debug.Log("in Jumping");
         }
     }
 
