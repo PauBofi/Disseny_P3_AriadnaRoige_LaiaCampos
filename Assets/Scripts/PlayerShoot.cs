@@ -9,6 +9,7 @@ public class PlayerShoot : MonoBehaviour
 
     public float bulletSpeed = 50f;
     private int Mana = 30;
+    private float timeToDestroy = 5f;
 
     // Update is called once per frame
     void Update()
@@ -31,6 +32,6 @@ public class PlayerShoot : MonoBehaviour
         Mana = Mana - 1;
         manabar.SetMana(Mana);
 
-        Destroy(bullet);
+        Destroy(bullet, timeToDestroy);
     }
 }

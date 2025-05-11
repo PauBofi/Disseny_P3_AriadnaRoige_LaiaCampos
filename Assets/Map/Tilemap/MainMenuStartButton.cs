@@ -13,7 +13,7 @@ public class MainMenuStartButton : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Leven1"); // Changes the main menu scene into the Level1 scene
+        SceneManager.LoadScene("Level 1 Nina"); // Changes the main menu scene into the Level1 scene
     }
 
     // Update is called once per frame
