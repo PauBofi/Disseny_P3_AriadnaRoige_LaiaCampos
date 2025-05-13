@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
 {    
     public Rigidbody2D rb;
     bool isFacingRight = true;
+    public ParticleSystem smokeFX;
+
     [Header("Movement")]
     public float moveSpeed = 5f;
     float horizontalMovement;
@@ -89,12 +91,14 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpPower);
                 jumpsRemaining--;
+                smokeFX.Play();
             }
 
             else if (context.canceled)
             {
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
                 jumpsRemaining--;
+                smokeFX.Play();
             }
         }
 
@@ -104,6 +108,7 @@ public class PlayerMovement : MonoBehaviour
             isWallJumping = true;
             rb.velocity = new Vector2(wallJumpDirection * wallJumpPower.x, wallJumpPower.y);
             wallJumpTimer = 0f;
+            smokeFX.Play();
 
             //force flip if not looking at right direction
             if (transform.localScale.x != wallJumpDirection)
@@ -197,6 +202,11 @@ public class PlayerMovement : MonoBehaviour
             Vector3 ls = transform.localScale;
             ls.x *= -1f;
             transform.localScale = ls;
+
+            if (rb.velocity.y == 0)
+            {
+                smokeFX.Play();
+            }
         }
     }
 
