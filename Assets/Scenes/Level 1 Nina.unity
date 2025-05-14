@@ -37045,8 +37045,8 @@ Transform:
   m_GameObject: {fileID: 2127820875}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 14.7, y: -56.5, z: -10.021542}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 24.39, y: -51, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -37142,12 +37142,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7263e19214a208849b59227998bffac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1898095136}
   chaseSpeed: 2
   jumpForce: 2
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!70 &2127820880
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
