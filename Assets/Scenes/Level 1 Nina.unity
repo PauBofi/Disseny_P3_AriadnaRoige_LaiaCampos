@@ -36966,7 +36966,7 @@ Transform:
   m_GameObject: {fileID: 2127820875}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 44.31, y: -50, z: 0}
+  m_LocalPosition: {x: 57.57, y: -53.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37063,13 +37063,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7263e19214a208849b59227998bffac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 7277944891960904392, guid: 4b929b03668aed249932cf74e457496c, type: 3}
+  bulletSpeed: 10
+  shootCooldown: 1
   player: {fileID: 1898095136}
   chaseSpeed: 2
-  jumpForce: 3
-  maxReachableDistance: 5
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!70 &2127820880
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

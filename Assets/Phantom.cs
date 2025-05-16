@@ -1,93 +1,90 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Phantom : MonoBehaviour
 {
+    public GameObject bulletPrefab;
+    public float bulletSpeed = 10f;
+    private bool canShoot = true;
+    public float shootCooldown = 1f;
+    private float timeToDestroy = 5f;
+
     public Transform player;
     public float chaseSpeed = 2f;
-    public float jumpForce = 10f;
-    public float maxReachableDistance = 5f;
     public LayerMask groundLayer;
+    public LayerMask playerLayer;
 
     private Rigidbody2D rb;
-    private bool isGrounded;
-    private bool shouldJump;
-    private float jumpForceToApply;
+    private int directionX = 1;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Debug.Log("Grounded: " + isGrounded + ", Velocity: " + rb.velocity.x);
-
-        isGrounded = rb.IsTouchingLayers(groundLayer);
-
-        bool isPlayerAbove = Physics2D.Raycast(transform.position, Vector2.up, 5f, 1 << player.gameObject.layer);
-
-        float direction = Mathf.Sign(player.position.x - transform.position.x);
-
-        if (isGrounded)
+        float raycastLength = 6f;
+        Vector2[] directions =
         {
-            RaycastHit2D groundInFront = Physics2D.Raycast(transform.position, new Vector2(direction, 0), 5f, groundLayer);
+            Vector2.right,
+            Vector2.left,
+            Vector2.up,
+            (Vector2.down + Vector2.right).normalized,
+            (Vector2.up + Vector2.right).normalized,
+            (Vector2.up + Vector2.left).normalized
+        };
 
-            RaycastHit2D gapAhead = Physics2D.Raycast(transform.position + new Vector3(direction, 0, 0), Vector2.down, 5f, groundLayer);
+        foreach (Vector2 d in directions)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, d, raycastLength, playerLayer);
+            Debug.DrawRay(transform.position, d * raycastLength, Color.red);
 
-            RaycastHit2D platformAbove = Physics2D.Raycast(transform.position, Vector2.up, 5f, groundLayer);
-
-            Debug.DrawRay(transform.position, new Vector2(direction, 1f).normalized * 4f, Color.green);
-
-            if (!groundInFront.collider && !gapAhead.collider)
+            if (hit.collider != null && hit.collider.transform == player)
             {
-                shouldJump = true;
-                jumpForceToApply = jumpForce;
+                Shoot(d);
+                break;
             }
-            else if (isPlayerAbove && platformAbove.collider)
-            {
-                shouldJump = true;
-                jumpForceToApply = jumpForce;
-            }
-
-            RaycastHit2D platformAhead = Physics2D.Raycast(transform.position, new Vector2(direction, 1f).normalized, 4f, groundLayer);
-            Debug.DrawRay(transform.position, new Vector2(direction, 1f).normalized * 4f, Color.green);
-
-            if (platformAhead.collider != null)
-            {
-                float distance = Vector2.Distance(transform.position, platformAhead.point);
-                if (distance <= maxReachableDistance)
-                {
-                    float adjustedForce = Mathf.Clamp(distance * 1.2f, 3f, jumpForce);
-                    jumpForceToApply = adjustedForce;
-                    shouldJump = true;
-                }
-            }
-
         }
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        if (isGrounded)
+        RaycastHit2D groundAhead = Physics2D.Raycast(transform.position + new Vector3(directionX * 0.5f, 0, 0), Vector2.down, 5f, groundLayer);
+        Debug.DrawRay(transform.position + new Vector3(directionX * 0.5f, 0, 0), Vector2.down * 2f, Color.blue);
+
+        if (!groundAhead.collider)
         {
-            float direction = Mathf.Sign(player.position.x - transform.position.x);
-            rb.velocity = new Vector2(direction * chaseSpeed, rb.velocity.y);
+            directionX *= -1;
         }
-
-        if (isGrounded && shouldJump)
+        if (canShoot)
         {
-            shouldJump = false;
-            Vector2 direction = (player.position - transform.position).normalized;
-            Vector2 jumpDirection = direction * jumpForceToApply;
-
-            rb.AddForce(new Vector2(jumpDirection.x, jumpForce), ForceMode2D.Impulse);
+            rb.velocity = new Vector2(directionX * chaseSpeed, rb.velocity.y);
         }
-
-
+        else
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y); 
+        }
     }
+
+    void Shoot(Vector2 direction)
+    {
+        if (!canShoot) return;
+
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        bullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * bulletSpeed;
+
+        canShoot = false;
+
+        Invoke(nameof(ResetShoot), shootCooldown);
+
+        Destroy(bullet, timeToDestroy);
+    }
+
+    void ResetShoot()
+    {
+        canShoot = true;
+    }
+
 }
