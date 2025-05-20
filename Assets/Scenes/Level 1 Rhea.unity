@@ -2143,13 +2143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1ba9e52371ab9e4d9746922835931c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthbar: {fileID: 783500397}
-  manabar: {fileID: 0}
-  BulletPrefab: {fileID: 7277944891960904392, guid: 4b929b03668aed249932cf74e457496c, type: 3}
-  Speed: 4
-  JumpForce: 400
-  groundPosition: {fileID: 591288715}
-  wallPosition: {fileID: 0}
 --- !u!95 &690137907
 Animator:
   serializedVersion: 5
@@ -27933,7 +27926,7 @@ Transform:
   m_GameObject: {fileID: 1660299922}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.54, y: 0, z: 0}
+  m_LocalPosition: {x: 0.64, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28593,7 +28586,7 @@ Transform:
   m_GameObject: {fileID: 1888652590}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.05, z: 0}
+  m_LocalPosition: {x: 0, y: -1.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28633,7 +28626,7 @@ Animator:
   m_GameObject: {fileID: 1898095130}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c2065cc3fc099994a96815ad21771bc4, type: 2}
+  m_Controller: {fileID: 9100000, guid: f68f2e1a7be197740a885ab84cba0992, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -28705,7 +28698,7 @@ Transform:
   m_GameObject: {fileID: 1898095130}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.52, y: -52.28, z: 0}
+  m_LocalPosition: {x: -6.64, y: -52.28, z: 0}
   m_LocalScale: {x: 0.99, y: 0.99, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -28726,6 +28719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1898095140}
+  smokeFX: {fileID: 0}
   moveSpeed: 5
   jumpPower: 10
   maxJumps: 2
@@ -28744,6 +28738,7 @@ MonoBehaviour:
     m_Bits: 64
   wallSlideSpeed: 2
   wallJumpPower: {x: 5, y: 10}
+  animator: {fileID: 0}
   healthbar: {fileID: 0}
 --- !u!114 &1898095138
 MonoBehaviour:
@@ -28854,7 +28849,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1898095130}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -28879,18 +28874,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.16173953, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.02, y: 1.8801368}
+    oldSize: {x: 1.7, y: 3.1335616}
     newSize: {x: 0.65, y: 1.7201252}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0571429, y: 2.8857143}
+  m_Size: {x: 1.1649681, y: 2.8857143}
   m_EdgeRadius: 0
 --- !u!50 &1898095140
 Rigidbody2D:
@@ -28926,7 +28921,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1898095130}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:

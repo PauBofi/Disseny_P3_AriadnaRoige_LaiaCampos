@@ -43,7 +43,7 @@ public class Player_Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Player_Movimiento player = collision.GetComponent<Player_Movimiento>();
+        PlayerMovement player = collision.GetComponent<PlayerMovement>();
         Enemy enemy = collision.GetComponent<Enemy>();
 
         if (player != null)

@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 wallJumpPower = new Vector2(5f, 10f);
 
     [Header("Animator")]
-    Animator animator;
+    public Animator animator;
 
     [Header("Health Bar HUD")]
     [SerializeField] Healthbar healthbar;
@@ -70,16 +70,16 @@ public class PlayerMovement : MonoBehaviour
         if (!isWallJumping)
         {
             rb.velocity = new Vector2(horizontalMovement * moveSpeed, rb.velocity.y);
-            Flip();
-            //animator.SetFloat("xVelocity", Math.Abs(rb.velocity.x));
-            //animator.SetFloat("yVelocity", rb.velocity.y);
-        }
+            Flip();            
+        }        
+        animator.SetFloat("yVelocity", rb.velocity.y);
+        animator.SetFloat("magnitude",rb.velocity.magnitude);
+        //animator.SetBool("isShooting",/*bariable de shoot*/);
     }
 
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontalMovement * moveSpeed, rb.velocity.y);
-        animator.SetFloat("xVelocity", Math.Abs(rb.velocity.x));
         animator.SetFloat("yVelocity", rb.velocity.y);
     }
 
@@ -92,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, jumpPower);
                 jumpsRemaining--;
                 smokeFX.Play();
+                animator.SetTrigger("jump");
             }
 
             else if (context.canceled)
@@ -99,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
                 jumpsRemaining--;
                 smokeFX.Play();
+                animator.SetTrigger("jump");
             }
         }
 
@@ -109,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(wallJumpDirection * wallJumpPower.x, wallJumpPower.y);
             wallJumpTimer = 0f;
             smokeFX.Play();
+            animator.SetTrigger("jump");
 
             //force flip if not looking at right direction
             if (transform.localScale.x != wallJumpDirection)
@@ -131,8 +134,6 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             isGrounded = false;
-            animator.SetBool("isJumping", !isGrounded);
-            Debug.Log("in Jumping");
         }
     }
 
@@ -209,8 +210,16 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+    public void Hit()
+    {
+        Health = Health - 1;
+        if (Health == 0)
+        {
+            Debug.Log("PLAYER MORT // Falta pantalla Game Over");
+        }
+    }
 
-  
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.white;

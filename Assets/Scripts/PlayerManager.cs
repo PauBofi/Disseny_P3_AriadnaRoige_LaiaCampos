@@ -21,6 +21,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (other.CompareTag("DeathZone"))
         {
+            Debug.Log("PLAYER MORT // Falta pantalla Game Over");
             Respawn();
         }
     }
