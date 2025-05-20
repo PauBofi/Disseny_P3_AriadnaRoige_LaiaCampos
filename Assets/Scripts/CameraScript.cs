@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    public GameObject Player;
     public Transform player;
 
     // Límites del mapa
