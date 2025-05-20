@@ -43,7 +43,8 @@ public class Phantom : MonoBehaviour
 
             if (hit.collider != null && hit.collider.transform == player)
             {
-                Shoot(d);
+                Vector2 direction = new Vector2(player.position.x - transform.position.x, player.position.y - transform.position.y).normalized;
+                Shoot(direction);
                 break;
             }
         }
@@ -73,7 +74,7 @@ public class Phantom : MonoBehaviour
         if (!canShoot) return;
 
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-        bullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * bulletSpeed;
+        bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
 
         canShoot = false;
 
