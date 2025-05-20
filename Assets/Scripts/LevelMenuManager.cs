@@ -22,7 +22,7 @@ public class LevelMenuManager : MonoBehaviour
         buttonLevel1.onClick.AddListener(ButtonLevel1);
         buttonLevel2.onClick.AddListener(ButtonLevel2);
         returnMainMenu.onClick.AddListener(ReturnMainMenu);
-        levelButtonSettings.onClick.AddListener(LevelButtonSettings);
+        //levelButtonSettings.onClick.AddListener(LevelButtonSettings);
 
         volumeSlider.onValueChanged.AddListener(SetVolume);
 
@@ -38,27 +38,36 @@ public class LevelMenuManager : MonoBehaviour
     {
 
     }
-    void ButtonLevel0()
+    public void ButtonLevel0()
     {
         SceneManager.LoadScene("Level 1 Nina");
     }
-    void ButtonLevel1()
+    public void ButtonLevel1()
     {
         SceneManager.LoadScene("Level 1 Nina");
     }
-    void ButtonLevel2()
+    public void ButtonLevel2()
     {
         SceneManager.LoadScene("Level 1 Nina");
     }
-    void ReturnMainMenu()
+    public void ReturnMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }
-    void LevelButtonSettings()
+    public void LevelButtonSettings()
     {
+        if (settingsPanel.activeInHierarchy == false)
+        {
+            settingsPanel.SetActive(true);
+        }
+        else if (settingsPanel.activeInHierarchy == true)
+        {
+            settingsPanel.SetActive(false);
+        }
+
         Debug.Log("Abrir ajustes");
     }
-    void SetVolume(float volume)
+    public void SetVolume(float volume)
     {
         AudioListener.volume = volume;
         PlayerPrefs.SetFloat("GameVolume", volume);

@@ -17,7 +17,7 @@ public class MainMenuManager : MonoBehaviour
     void Start()
     {
         startButton.onClick.AddListener(StartGame);
-        settingsButton.onClick.AddListener(OpenSettings);
+       // settingsButton.onClick.AddListener(OpenSettings);
         exitButton.onClick.AddListener(ExitGame);
 
         volumeSlider.onValueChanged.AddListener(SetVolume);
@@ -34,20 +34,29 @@ public class MainMenuManager : MonoBehaviour
     {
 
     }
-    void StartGame()
+    public void StartGame()
     {
         SceneManager.LoadScene("LevelSelector");
     }
-    void OpenSettings()
+    public void OpenSettings()
     {
+        if(settingsPanel.activeInHierarchy == false)
+        {
+            settingsPanel.SetActive(true);
+        } 
+        else if (settingsPanel.activeInHierarchy == true)
+        {
+            settingsPanel.SetActive(false);
+        }            
+
         Debug.Log("Abrir ajustes");
     }
-    void ExitGame()
+    public void ExitGame()
     {
         Debug.Log("Salir del juego");
         Application.Quit();       
     }
-    void SetVolume(float volume)
+    public void SetVolume(float volume)
     {
         AudioListener.volume = volume;
         PlayerPrefs.SetFloat("GameVolume", volume);
