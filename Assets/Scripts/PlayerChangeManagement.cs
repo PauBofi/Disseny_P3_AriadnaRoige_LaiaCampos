@@ -7,7 +7,6 @@ public class PlayerChangeManagement : MonoBehaviour
     public CameraScript cameraScript;
     public GameObject rangedPrefab;
     public GameObject meleePrefab;
-    public Phantom phantomScript;
 
     private GameObject currentPlayer;
     private bool isRanged = true;
@@ -20,7 +19,11 @@ public class PlayerChangeManagement : MonoBehaviour
 
         cameraScript.player = currentPlayer.transform;
 
-        phantomScript.player.position = currentPlayer.transform.position;
+        Phantom[] phantoms = FindObjectsOfType<Phantom>();
+        foreach (Phantom p in phantoms)
+        {
+            p.player = currentPlayer.transform;
+        }
     }
 
     void Update()
@@ -51,7 +54,11 @@ public class PlayerChangeManagement : MonoBehaviour
 
         cameraScript.player = currentPlayer.transform;
 
-        phantomScript.player = currentPlayer.transform;
+        Phantom[] phantoms = FindObjectsOfType<Phantom>();
+        foreach (Phantom p in phantoms)
+        {
+            p.player = currentPlayer.transform;
+        }
 
         isRanged = !isRanged;
 
