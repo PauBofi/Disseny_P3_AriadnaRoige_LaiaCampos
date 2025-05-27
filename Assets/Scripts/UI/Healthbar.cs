@@ -20,6 +20,23 @@ public class Healthbar : MonoBehaviour
 
     public void SetHealth(int health)
     {
-        healthSlider.value = health;
+        StartCoroutine(AnimateHealth(health));
     }
+
+    IEnumerator AnimateHealth(int targetHealth)
+    {
+        float duration = 0.3f;
+        float elapsed = 0f;
+        float startValue = healthSlider.value;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            healthSlider.value = Mathf.Lerp(startValue, targetHealth, elapsed / duration);
+            yield return null;
+        }
+
+        healthSlider.value = targetHealth;
+    }
+
 }

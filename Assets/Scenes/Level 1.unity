@@ -1809,6 +1809,7 @@ MonoBehaviour:
   rangedPrefab: {fileID: 3438967036801495039, guid: 39fd07e04b1ab724d95914e4b924b5a8, type: 3}
   meleePrefab: {fileID: 3438967036801495039, guid: 12db1e551bf342342898fa590ea875d4, type: 3}
   switchCooldown: 5
+  ScenealHealthBar: {fileID: 783500397}
 --- !u!1 &668923226
 GameObject:
   m_ObjectHideFlags: 0
@@ -2339,9 +2340,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 1
   m_MinValue: 0
-  m_MaxValue: 10
+  m_MaxValue: 20
   m_WholeNumbers: 1
-  m_Value: 10
+  m_Value: 20
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -31415,7 +31416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7263e19214a208849b59227998bffac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7277944891960904392, guid: 4b929b03668aed249932cf74e457496c, type: 3}
+  bulletPrefab: {fileID: 7277944891960904392, guid: 795407a3f57cb2c499faa1c9a71d2613, type: 3}
   bulletSpeed: 10
   shootCooldown: 1
   player: {fileID: 0}
