@@ -18,9 +18,14 @@ public class Phantom : MonoBehaviour
     private Rigidbody2D rb;
     private int directionX = 1;
 
+    int maxHealth = 5;
+    int currentHealth;
+    int minHealth = 0;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
     }
 
     void Update()
@@ -47,6 +52,11 @@ public class Phantom : MonoBehaviour
                 Shoot(direction);
                 break;
             }
+        }
+
+        if (currentHealth <= minHealth)
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -87,5 +97,9 @@ public class Phantom : MonoBehaviour
     {
         canShoot = true;
     }
-
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+    }
 }

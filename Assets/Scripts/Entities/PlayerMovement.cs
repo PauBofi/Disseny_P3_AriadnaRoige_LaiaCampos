@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
-{    
+{
     public Rigidbody2D rb;
     bool isFacingRight = true;
     public ParticleSystem smokeFX;
@@ -48,8 +48,9 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
 
     [Header("Health Bar HUD")]
-    [SerializeField] Healthbar healthbar;
-    private int Health = 10;
+    public Healthbar healthbar;
+    int maxHealth = 20;
+    public int currentHealth;
     /*Health = Health - 1;
       healthbar.SetHealth(Health);*/
 
@@ -58,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        InitializeHealth();
     }
 
     // Update is called once per frame
@@ -70,11 +72,16 @@ public class PlayerMovement : MonoBehaviour
         if (!isWallJumping)
         {
             rb.velocity = new Vector2(horizontalMovement * moveSpeed, rb.velocity.y);
-            Flip();            
-        }        
+            Flip();
+        }
         animator.SetFloat("yVelocity", rb.velocity.y);
-        animator.SetFloat("magnitude",rb.velocity.magnitude);
+        animator.SetFloat("magnitude", rb.velocity.magnitude);
         //animator.SetBool("isShooting",/*bariable de shoot*/);
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            TakeDamage(1); // le baja 1 de vida al jugador
+        }
     }
 
     private void FixedUpdate()
@@ -128,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
         if (Physics2D.OverlapBox(groundCheckPos.position, groundCheckSize, 0, groundLayer))
         {
             jumpsRemaining = maxJumps;
-            isGrounded = true;            
+            isGrounded = true;
         }
 
         else
@@ -144,7 +151,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void ProcessGravity()
     {
-        if(rb.velocity.y < 0)
+        if (rb.velocity.y < 0)
         {
             rb.gravityScale = baseGravity * fallSpeedMultiplier;
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Max(rb.velocity.y, -maxFallSpeed));
@@ -197,7 +204,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip()
     {
-        if(isFacingRight && horizontalMovement < 0 || !isFacingRight && horizontalMovement > 0)
+        if (isFacingRight && horizontalMovement < 0 || !isFacingRight && horizontalMovement > 0)
         {
             isFacingRight = !isFacingRight;
             Vector3 ls = transform.localScale;
@@ -210,13 +217,18 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-    public void Hit()
+    public void TakeDamage(int damage)
     {
-        Health = Health - 1;
-        if (Health == 0)
-        {
-            Debug.Log("PLAYER MORT // Falta pantalla Game Over");
-        }
+        currentHealth -= damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        healthbar.SetHealth(currentHealth);
+    }
+
+    public void InitializeHealth()
+    {
+        currentHealth = maxHealth;
+        healthbar.SetMaxHealth(maxHealth);
+        healthbar.SetHealth(currentHealth);
     }
 
 

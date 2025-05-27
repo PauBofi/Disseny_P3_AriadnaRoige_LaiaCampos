@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_Bullet : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
     public int damage = 1;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Phantom phantom = other.GetComponent<Phantom>();
-        if (phantom != null)
+        PlayerMovement player = other.GetComponent<PlayerMovement>();
+        if (player != null)
         {
-            phantom.TakeDamage(damage);
+            player.TakeDamage(damage);
             Destroy(gameObject);
         }
     }
