@@ -1808,7 +1808,6 @@ MonoBehaviour:
   cameraScript: {fileID: 1943865402}
   rangedPrefab: {fileID: 3438967036801495039, guid: 39fd07e04b1ab724d95914e4b924b5a8, type: 3}
   meleePrefab: {fileID: 3438967036801495039, guid: 12db1e551bf342342898fa590ea875d4, type: 3}
-  phantomScript: {fileID: 0}
   switchCooldown: 5
 --- !u!1 &668923226
 GameObject:
