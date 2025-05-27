@@ -9,6 +9,7 @@ public class LevelMenuManager : MonoBehaviour
     public Button buttonLevel0;
     public Button buttonLevel1;
     public Button buttonLevel2;
+    public Button buttonLevelBoss;
     public Button returnMainMenu;
     public Button levelButtonSettings;
 
@@ -21,6 +22,7 @@ public class LevelMenuManager : MonoBehaviour
         buttonLevel0.onClick.AddListener(ButtonLevel0);
         buttonLevel1.onClick.AddListener(ButtonLevel1);
         buttonLevel2.onClick.AddListener(ButtonLevel2);
+        buttonLevelBoss.onClick.AddListener(ButtonLevelBoss);
         returnMainMenu.onClick.AddListener(ReturnMainMenu);
         //levelButtonSettings.onClick.AddListener(LevelButtonSettings);
 
@@ -40,15 +42,19 @@ public class LevelMenuManager : MonoBehaviour
     }
     public void ButtonLevel0()
     {
-        SceneManager.LoadScene("Level 1 Nina");
+        SceneManager.LoadScene("Level 1");
     }
     public void ButtonLevel1()
     {
-        SceneManager.LoadScene("Level 1 Nina");
+        SceneManager.LoadScene("Level 2");
     }
     public void ButtonLevel2()
     {
-        SceneManager.LoadScene("Level 1 Nina");
+        SceneManager.LoadScene("Level 3");
+    }
+    public void ButtonLevelBoss()
+    {
+        SceneManager.LoadScene("Level 4");
     }
     public void ReturnMainMenu()
     {
