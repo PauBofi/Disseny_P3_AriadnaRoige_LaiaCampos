@@ -13,6 +13,8 @@ public class PlayerChangeManagement : MonoBehaviour
     private bool canSwitch = true;
     public float switchCooldown = 2f;
     public Healthbar ScenealHealthBar;
+    public Manabar ScenealManaBar;
+
 
     private int minHealth = 0;
 
@@ -21,6 +23,7 @@ public class PlayerChangeManagement : MonoBehaviour
         currentPlayer = Instantiate(rangedPrefab, transform.position, Quaternion.identity);
         PlayerMovement playerMovement = currentPlayer.GetComponent<PlayerMovement>();
         playerMovement.healthbar = ScenealHealthBar;
+        playerMovement.manabar = ScenealManaBar;
         cameraScript.player = currentPlayer.transform;
 
         Phantom[] phantoms = FindObjectsOfType<Phantom>();
@@ -32,16 +35,16 @@ public class PlayerChangeManagement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X) && canSwitch)
-        {
-            SwitchCharacter();
-        }
-
         PlayerMovement playerMovement = currentPlayer.GetComponent<PlayerMovement>();
 
         if (playerMovement.currentHealth <= minHealth)
         {
             Destroy(currentPlayer);
+        }
+
+        if (Input.GetKeyDown(KeyCode.X) && canSwitch)
+        {
+            SwitchCharacter();
         }
     }
 
@@ -57,10 +60,15 @@ public class PlayerChangeManagement : MonoBehaviour
         if (isRanged)
         {
             currentPlayer = Instantiate(meleePrefab, position, rotation);
+            PlayerMovement playerMovement = currentPlayer.GetComponent<PlayerMovement>();
+            playerMovement.healthbar = ScenealHealthBar;
         }
         else
         {
             currentPlayer = Instantiate(rangedPrefab, position, rotation);
+            PlayerMovement playerMovement = currentPlayer.GetComponent<PlayerMovement>();
+            playerMovement.healthbar = ScenealHealthBar;
+            playerMovement.manabar = ScenealManaBar;
         }
 
 

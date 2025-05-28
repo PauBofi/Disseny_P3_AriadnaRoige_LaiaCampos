@@ -54,15 +54,24 @@ public class PlayerMovement : MonoBehaviour
     /*Health = Health - 1;
       healthbar.SetHealth(Health);*/
 
+    [Header("Mana Bar HUD")]
+    public Manabar manabar;
+    int maxMana = 20;
+    public int currentMana;
+    public float manaRegenInterval = 3f;
+    private float manaRegenTimer;
+
+
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         InitializeHealth();
+        InitializeMana();
     }
 
-    // Update is called once per frame
     void Update()
     {
         GroundCheck();
@@ -80,7 +89,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.H))
         {
-            TakeDamage(1); // le baja 1 de vida al jugador
+            TakeDamage(1);
+        }
+
+        manaRegenTimer += Time.deltaTime;
+        if (manaRegenTimer >= manaRegenInterval)
+        {
+            RegenerateMana(1);
+            manaRegenTimer = 0f;
         }
     }
 
@@ -229,6 +245,30 @@ public class PlayerMovement : MonoBehaviour
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
         healthbar.SetHealth(currentHealth);
+    }
+
+    public void InitializeMana()
+    {
+        currentMana = maxMana;
+        manabar.SetMaxMana(maxMana);
+        manabar.SetMana(currentMana);
+    }
+
+    public void UseMana(int amount)
+    {
+        currentMana -= amount;
+        currentMana = Mathf.Clamp(currentMana, 0, maxMana);
+        manabar.SetMana(currentMana);
+    }
+
+    public void RegenerateMana(int amount)
+    {
+        if (currentMana < maxMana)
+        {
+            currentMana += amount;
+            currentMana = Mathf.Clamp(currentMana, 0, maxMana);
+            manabar.SetMana(currentMana);
+        }
     }
 
 

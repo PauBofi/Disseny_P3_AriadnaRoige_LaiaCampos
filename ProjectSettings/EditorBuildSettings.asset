@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 9487faf2b495d614d931e737021e3774
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level 1 Rhea.unity
     guid: e771b93981c20af4d8596741c65ff4b5
   - enabled: 0
@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelSelector.unity
     guid: 2f0217ccf9a9e0741925562d1f65eb2d
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: 216c55b8b40154f4cbc321eaf913e0d4
   m_configObjects: {}

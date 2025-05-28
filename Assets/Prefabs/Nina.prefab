@@ -359,6 +359,9 @@ MonoBehaviour:
   wallJumpPower: {x: 5, y: 10}
   animator: {fileID: 0}
   healthbar: {fileID: 0}
+  currentHealth: 0
+  manabar: {fileID: 0}
+  currentMana: 0
 --- !u!114 &5319195767959556802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,7 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7277944891960904392, guid: 4b929b03668aed249932cf74e457496c, type: 3}
-  manabar: {fileID: 0}
+  playerMovement: {fileID: 5730484232630787855}
   bulletSpeed: 15
 --- !u!114 &2786200486126270057
 MonoBehaviour:
