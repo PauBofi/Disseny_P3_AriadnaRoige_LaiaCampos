@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Health Bar HUD")]
     public Healthbar healthbar;
-    int maxHealth = 20;
+    public int maxHealth = 10;
     public int currentHealth;
     /*Health = Health - 1;
       healthbar.SetHealth(Health);*/

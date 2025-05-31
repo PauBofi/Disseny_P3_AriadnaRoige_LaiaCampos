@@ -359,9 +359,11 @@ MonoBehaviour:
   wallJumpPower: {x: 5, y: 10}
   animator: {fileID: 0}
   healthbar: {fileID: 0}
+  maxHealth: 10
   currentHealth: 0
   manabar: {fileID: 0}
   currentMana: 0
+  manaRegenInterval: 3
 --- !u!114 &5319195767959556802
 MonoBehaviour:
   m_ObjectHideFlags: 0

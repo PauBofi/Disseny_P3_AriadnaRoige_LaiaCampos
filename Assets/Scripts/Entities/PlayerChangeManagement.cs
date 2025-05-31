@@ -15,6 +15,9 @@ public class PlayerChangeManagement : MonoBehaviour
     public Healthbar ScenealHealthBar;
     public Manabar ScenealManaBar;
 
+    public GameObject HUD_Nina;
+    public GameObject HUD_Reah;
+
 
     private int minHealth = 0;
 
@@ -62,6 +65,9 @@ public class PlayerChangeManagement : MonoBehaviour
             currentPlayer = Instantiate(meleePrefab, position, rotation);
             PlayerMovement playerMovement = currentPlayer.GetComponent<PlayerMovement>();
             playerMovement.healthbar = ScenealHealthBar;
+
+            HUD_Nina.SetActive(false);
+            HUD_Reah.SetActive(true);
         }
         else
         {
@@ -69,8 +75,10 @@ public class PlayerChangeManagement : MonoBehaviour
             PlayerMovement playerMovement = currentPlayer.GetComponent<PlayerMovement>();
             playerMovement.healthbar = ScenealHealthBar;
             playerMovement.manabar = ScenealManaBar;
-        }
 
+            HUD_Reah.SetActive(false);
+            HUD_Nina.SetActive(true);
+        }
 
         cameraScript.player = currentPlayer.transform;
 
@@ -81,9 +89,9 @@ public class PlayerChangeManagement : MonoBehaviour
         }
 
         isRanged = !isRanged;
-
         Invoke(nameof(ResetSwitch), switchCooldown);
     }
+
 
     void ResetSwitch()
     {
