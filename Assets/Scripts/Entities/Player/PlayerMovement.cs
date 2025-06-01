@@ -51,8 +51,6 @@ public class PlayerMovement : MonoBehaviour
     public Healthbar healthbar;
     public int maxHealth = 10;
     public int currentHealth;
-    /*Health = Health - 1;
-      healthbar.SetHealth(Health);*/
 
     [Header("Mana Bar HUD")]
     public Manabar manabar;
