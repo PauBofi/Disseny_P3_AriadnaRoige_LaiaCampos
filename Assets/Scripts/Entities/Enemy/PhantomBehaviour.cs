@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class Phantom : MonoBehaviour
@@ -15,8 +16,11 @@ public class Phantom : MonoBehaviour
     public LayerMask groundLayer;
     public LayerMask playerLayer;
 
+    [Range(0.5f, 2.5f)]
+    [SerializeField] float WallRaycastLength = 2.0f;
     private Rigidbody2D rb;
     private int directionX = 1;
+    private string directionWall = "right";
 
     int maxHealth = 5;
     int currentHealth;
@@ -65,10 +69,17 @@ public class Phantom : MonoBehaviour
         RaycastHit2D groundAhead = Physics2D.Raycast(transform.position + new Vector3(directionX * 0.5f, 0, 0), Vector2.down, 5f, groundLayer);
         Debug.DrawRay(transform.position + new Vector3(directionX * 0.5f, 0, 0), Vector2.down * 2f, Color.blue);
 
-        if (!groundAhead.collider)
+        RaycastHit2D wallAhead = Physics2D.Raycast(transform.position, Vector2.right * directionX , WallRaycastLength, groundLayer);
+        Debug.DrawRay(transform.position , Vector2.right * directionX * WallRaycastLength, Color.magenta);
+
+        if (!groundAhead.collider || wallAhead.collider)
         {
             directionX *= -1;
+            Vector3 ls = transform.localScale;
+            ls.x *= -1f;
+            transform.localScale = ls;
         }
+
         if (canShoot)
         {
             rb.velocity = new Vector2(directionX * chaseSpeed, rb.velocity.y);
@@ -102,4 +113,6 @@ public class Phantom : MonoBehaviour
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
     }
+
+
 }
