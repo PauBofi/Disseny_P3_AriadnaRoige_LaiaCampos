@@ -20,7 +20,6 @@ public class Phantom : MonoBehaviour
     [SerializeField] float WallRaycastLength = 2.0f;
     private Rigidbody2D rb;
     private int directionX = 1;
-    private string directionWall = "right";
 
     int maxHealth = 5;
     int currentHealth;
