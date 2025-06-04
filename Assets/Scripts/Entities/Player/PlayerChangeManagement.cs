@@ -7,6 +7,7 @@ public class PlayerChangeManagement : MonoBehaviour
     public CameraScript cameraScript;
     public GameObject rangedPrefab;
     public GameObject meleePrefab;
+    public FinalBossBehaviour finalBossBehaviour;
 
     private GameObject currentPlayer;
     private bool isRanged = true;
@@ -28,6 +29,7 @@ public class PlayerChangeManagement : MonoBehaviour
         playerMovement.healthbar = ScenealHealthBar;
         playerMovement.manabar = ScenealManaBar;
         cameraScript.player = currentPlayer.transform;
+        finalBossBehaviour.player = currentPlayer.transform;
 
         Phantom[] phantoms = FindObjectsOfType<Phantom>();
         foreach (Phantom p in phantoms)
@@ -81,6 +83,7 @@ public class PlayerChangeManagement : MonoBehaviour
         }
 
         cameraScript.player = currentPlayer.transform;
+        finalBossBehaviour.player = currentPlayer.transform;
 
         Phantom[] phantoms = FindObjectsOfType<Phantom>();
         foreach (Phantom p in phantoms)
