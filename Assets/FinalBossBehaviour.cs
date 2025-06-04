@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinalBossBehaviour : MonoBehaviour
 {
@@ -21,12 +22,14 @@ public class FinalBossBehaviour : MonoBehaviour
     public int maxHealth = 20;
     private int currentHealth;
 
+    public PlayerChangeManagement playerChangeManagement;
     private Rigidbody2D rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
+        playerChangeManagement.OnPlayerChanged += RegisterNewPlayer;
     }
 
     void Update()
@@ -72,11 +75,11 @@ public class FinalBossBehaviour : MonoBehaviour
         GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         proj.GetComponent<Rigidbody2D>().velocity = shootDir * projectileSpeed;
 
-        Destroy(proj, 5f);
+        Destroy(proj, 10f);
+        isAttacking = false;
 
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
-        isAttacking = false;
     }
 
     IEnumerator SpawnPhantom()
@@ -98,6 +101,13 @@ public class FinalBossBehaviour : MonoBehaviour
 
     void Die()
     {
+        SceneManager.LoadScene("YouWin");
         Destroy(gameObject);
     }
+
+    void RegisterNewPlayer(Transform newPlayer)
+    {
+        player = newPlayer;
+    }
+
 }

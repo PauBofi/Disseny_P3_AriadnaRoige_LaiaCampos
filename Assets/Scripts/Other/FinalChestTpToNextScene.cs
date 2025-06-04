@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class FinalChestTpToNextScene : MonoBehaviour
 {
-    static int levelToGo = 1;
+    static int levelToGo = 0;
     private void OnTriggerEnter2D(Collider2D other)
     {
         Destroy(other.gameObject);

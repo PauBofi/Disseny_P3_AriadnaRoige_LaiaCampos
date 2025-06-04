@@ -54,8 +54,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Mana Bar HUD")]
     public Manabar manabar;
-    int maxMana = 20;
-    public int currentMana;
+    public int maxMana = 8;
+    internal int currentMana;
     public float manaRegenInterval = 3f;
     private float manaRegenTimer;
 

@@ -42,19 +42,19 @@ public class LevelMenuManager : MonoBehaviour
     }
     public void ButtonLevel0()
     {
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene("Tutorial");
     }
     public void ButtonLevel1()
     {
-        SceneManager.LoadScene("Level 2");
+        SceneManager.LoadScene("Level 1");
     }
     public void ButtonLevel2()
     {
-        SceneManager.LoadScene("Level 3");
+        SceneManager.LoadScene("Level 2");
     }
     public void ButtonLevelBoss()
     {
-        SceneManager.LoadScene("Level 4");
+        SceneManager.LoadScene("Level 3");
     }
     public void ReturnMainMenu()
     {

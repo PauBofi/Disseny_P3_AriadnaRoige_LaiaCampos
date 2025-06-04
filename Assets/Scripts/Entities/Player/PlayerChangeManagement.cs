@@ -1,13 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerChangeManagement : MonoBehaviour
 {
     public CameraScript cameraScript;
     public GameObject rangedPrefab;
     public GameObject meleePrefab;
-    public FinalBossBehaviour finalBossBehaviour;
+    //public FinalBossBehaviour finalBossBehaviour;
 
     private GameObject currentPlayer;
     private bool isRanged = true;
@@ -19,6 +21,7 @@ public class PlayerChangeManagement : MonoBehaviour
     public GameObject HUD_Nina;
     public GameObject HUD_Reah;
 
+    public Action<Transform> OnPlayerChanged;
 
     private int minHealth = 0;
 
@@ -29,7 +32,8 @@ public class PlayerChangeManagement : MonoBehaviour
         playerMovement.healthbar = ScenealHealthBar;
         playerMovement.manabar = ScenealManaBar;
         cameraScript.player = currentPlayer.transform;
-        finalBossBehaviour.player = currentPlayer.transform;
+
+        OnPlayerChanged?.Invoke(currentPlayer.transform);
 
         Phantom[] phantoms = FindObjectsOfType<Phantom>();
         foreach (Phantom p in phantoms)
@@ -44,6 +48,7 @@ public class PlayerChangeManagement : MonoBehaviour
 
         if (playerMovement.currentHealth <= minHealth)
         {
+            SceneManager.LoadScene("GameOver");
             Destroy(currentPlayer);
         }
 
@@ -83,7 +88,6 @@ public class PlayerChangeManagement : MonoBehaviour
         }
 
         cameraScript.player = currentPlayer.transform;
-        finalBossBehaviour.player = currentPlayer.transform;
 
         Phantom[] phantoms = FindObjectsOfType<Phantom>();
         foreach (Phantom p in phantoms)
@@ -93,6 +97,8 @@ public class PlayerChangeManagement : MonoBehaviour
 
         isRanged = !isRanged;
         Invoke(nameof(ResetSwitch), switchCooldown);
+
+        OnPlayerChanged?.Invoke(currentPlayer.transform);
     }
 
 

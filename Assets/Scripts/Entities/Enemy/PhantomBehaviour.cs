@@ -14,6 +14,7 @@ public class Phantom : MonoBehaviour
     public Transform player;
     public float chaseSpeed = 2f;
     public LayerMask groundLayer;
+    public LayerMask wallLayer;
     public LayerMask playerLayer;
 
     [Range(0.5f, 2.5f)]
@@ -33,7 +34,7 @@ public class Phantom : MonoBehaviour
 
     void Update()
     {
-        float raycastLength = 6f;
+        /*float raycastLength = 6f;
         Vector2[] directions =
         {
             Vector2.right,
@@ -55,7 +56,7 @@ public class Phantom : MonoBehaviour
                 Shoot(direction);
                 break;
             }
-        }
+        }*/
 
         if (currentHealth <= minHealth)
         {
@@ -68,7 +69,7 @@ public class Phantom : MonoBehaviour
         RaycastHit2D groundAhead = Physics2D.Raycast(transform.position + new Vector3(directionX * 0.5f, 0, 0), Vector2.down, 5f, groundLayer);
         Debug.DrawRay(transform.position + new Vector3(directionX * 0.5f, 0, 0), Vector2.down * 2f, Color.blue);
 
-        RaycastHit2D wallAhead = Physics2D.Raycast(transform.position, Vector2.right * directionX , WallRaycastLength, groundLayer);
+        RaycastHit2D wallAhead = Physics2D.Raycast(transform.position, Vector2.right * directionX , WallRaycastLength, wallLayer);
         Debug.DrawRay(transform.position , Vector2.right * directionX * WallRaycastLength, Color.magenta);
 
         if (!groundAhead.collider || wallAhead.collider)

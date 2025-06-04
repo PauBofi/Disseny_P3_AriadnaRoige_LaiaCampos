@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_Bullet : MonoBehaviour
+public class NinaBullet : MonoBehaviour
 {
     public int damage = 1;
 
@@ -12,6 +12,13 @@ public class Player_Bullet : MonoBehaviour
         if (phantom != null)
         {
             phantom.TakeDamage(damage);
+            Destroy(gameObject);
+        }
+
+        FinalBossBehaviour FinalBossBehaviour = other.GetComponent<FinalBossBehaviour>();
+        if (FinalBossBehaviour != null)
+        {
+            FinalBossBehaviour.TakeDamage(damage);
             Destroy(gameObject);
         }
     }
