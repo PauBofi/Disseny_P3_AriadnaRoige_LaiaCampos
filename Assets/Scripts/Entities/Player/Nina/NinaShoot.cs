@@ -19,6 +19,8 @@ public class PlayerShoot : MonoBehaviour
         manabar.SetMana(Mana);
     }*/
 
+    public AudioClip SoundBullet;
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && playerMovement.currentMana > 0)
@@ -29,6 +31,7 @@ public class PlayerShoot : MonoBehaviour
 
     void Shoot()
     {
+        AudioManager.Instance.PlaySFX(SoundBullet);
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 shootDirection = (mousePosition - transform.position).normalized;
 

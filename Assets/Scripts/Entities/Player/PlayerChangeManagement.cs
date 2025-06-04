@@ -23,6 +23,8 @@ public class PlayerChangeManagement : MonoBehaviour
 
     public Action<Transform> OnPlayerChanged;
 
+    public AudioClip soundChange;
+
     private int minHealth = 0;
 
     void Start()
@@ -72,7 +74,7 @@ public class PlayerChangeManagement : MonoBehaviour
             currentPlayer = Instantiate(meleePrefab, position, rotation);
             PlayerMovement playerMovement = currentPlayer.GetComponent<PlayerMovement>();
             playerMovement.healthbar = ScenealHealthBar;
-
+            AudioManager.Instance.PlaySFX(soundChange);
             HUD_Nina.SetActive(false);
             HUD_Reah.SetActive(true);
         }
@@ -82,7 +84,7 @@ public class PlayerChangeManagement : MonoBehaviour
             PlayerMovement playerMovement = currentPlayer.GetComponent<PlayerMovement>();
             playerMovement.healthbar = ScenealHealthBar;
             playerMovement.manabar = ScenealManaBar;
-
+            AudioManager.Instance.PlaySFX(soundChange);
             HUD_Reah.SetActive(false);
             HUD_Nina.SetActive(true);
         }

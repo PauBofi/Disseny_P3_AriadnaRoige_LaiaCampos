@@ -13,6 +13,9 @@ public class MainMenuManager : MonoBehaviour
     public GameObject settingsPanel;
     public Slider volumeSlider;
 
+    public AudioClip soundButtons;
+    public AudioClip musicaMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,8 @@ public class MainMenuManager : MonoBehaviour
         volumeSlider.value = savedVolume;
         AudioListener.volume = savedVolume;
 
+        AudioManager.Instance.PlayMusic(musicaMenu, true);
+
         settingsPanel.SetActive(false);
     }
 
@@ -36,11 +41,13 @@ public class MainMenuManager : MonoBehaviour
     }
     public void StartGame()
     {
+        AudioManager.Instance.PlaySFX(soundButtons);
         SceneManager.LoadScene("LevelSelector");
     }
     public void OpenSettings()
     {
-        if(settingsPanel.activeInHierarchy == false)
+        AudioManager.Instance.PlaySFX(soundButtons);
+        if (settingsPanel.activeInHierarchy == false)
         {
             settingsPanel.SetActive(true);
         } 
@@ -53,6 +60,7 @@ public class MainMenuManager : MonoBehaviour
     }
     public void ExitGame()
     {
+        AudioManager.Instance.PlaySFX(soundButtons);
         Debug.Log("Salir del juego");
         Application.Quit();       
     }

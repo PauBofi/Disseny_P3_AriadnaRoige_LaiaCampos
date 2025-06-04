@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 public class FinalChestTpToNextScene : MonoBehaviour
 {
     static int levelToGo = 0;
+    public AudioClip sonidoFinal;
     private void OnTriggerEnter2D(Collider2D other)
     {
+        AudioManager.Instance.PlaySFX(sonidoFinal);
         Destroy(other.gameObject);
         Debug.Log("Jugador tocó el cofre");
         levelToGo += 1;

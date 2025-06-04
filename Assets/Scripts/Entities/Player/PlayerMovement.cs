@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed = 5f;
     float horizontalMovement;
+    public AudioClip soundRun;
+    
 
     [Header("Jumping")]
     public float jumpPower = 10f;
@@ -51,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     public Healthbar healthbar;
     public int maxHealth = 10;
     public int currentHealth;
+    public AudioClip soundHurt;
 
     [Header("Mana Bar HUD")]
     public Manabar manabar;
@@ -214,6 +217,7 @@ public class PlayerMovement : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         horizontalMovement = context.ReadValue<Vector2>().x;
+        AudioManager.Instance.PlaySFX(soundRun);
     }
 
     private void Flip()
@@ -233,6 +237,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
+        AudioManager.Instance.PlaySFX(soundHurt);
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         healthbar.SetHealth(currentHealth);

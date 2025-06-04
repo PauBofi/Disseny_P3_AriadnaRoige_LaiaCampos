@@ -5,6 +5,9 @@ public class reahAttack : MonoBehaviour
     public GameObject attackHitbox;
     private Animator animator;
 
+    public AudioClip soundAttackA;
+    public AudioClip soundAttackB;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -15,11 +18,13 @@ public class reahAttack : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            AudioManager.Instance.PlaySFX(soundAttackA);
             animator.SetTrigger("Attack1");
             StartCoroutine(EnableHitbox());
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
+            AudioManager.Instance.PlaySFX(soundAttackB);
             animator.SetTrigger("Attack2");
             StartCoroutine(EnableHitbox());
         }
