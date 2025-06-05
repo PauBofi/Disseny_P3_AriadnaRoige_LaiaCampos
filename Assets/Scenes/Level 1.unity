@@ -3831,7 +3831,7 @@ TilemapRenderer:
   m_MaxFrameAge: 16
   m_SortOrder: 0
   m_Mode: 0
-  m_DetectChunkCullingBounds: 0
+  m_DetectChunkCullingBounds: 1
   m_MaskInteraction: 0
 --- !u!1839735485 &1441070361
 Tilemap:
@@ -36865,7 +36865,7 @@ CompositeCollider2D:
     - - {x: 238, y: -61.12491}
       - {x: 237.87508, y: -61}
       - {x: 238, y: -61.000034}
-  m_VertexDistance: 0.007
+  m_VertexDistance: 0.01
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 1441070358}
