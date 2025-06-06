@@ -25,6 +25,9 @@ public class FinalBossBehaviour : MonoBehaviour
     public PlayerChangeManagement playerChangeManagement;
     private Rigidbody2D rb;
 
+    public AudioClip soundDeath;
+    public AudioClip soundBullet;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -55,6 +58,7 @@ public class FinalBossBehaviour : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            AudioManager.Instance.PlaySFX(soundDeath);
             Die();
         }
     }
@@ -69,6 +73,8 @@ public class FinalBossBehaviour : MonoBehaviour
     {
         canAttack = false;
         isAttacking = true;
+
+        AudioManager.Instance.PlaySFX(soundBullet);
 
         Vector2 shootDir = (player.position - transform.position).normalized;
 
