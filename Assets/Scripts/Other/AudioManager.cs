@@ -8,8 +8,21 @@ public class AudioManager : MonoBehaviour
 
     //public AudioSource musicSource;
     public AudioSource sfxSource;
-        
-    /*public void PlayMusic(AudioClip clip, bool loop = true)
+    public AudioSource musicSource;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;            
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void PlayMusic(AudioClip clip, bool loop = true)
     {
         if (musicSource == null || clip == null) return;
         musicSource.clip = clip;
@@ -20,7 +33,7 @@ public class AudioManager : MonoBehaviour
     {
         if (musicSource == null) return;
         musicSource.Stop();
-    }*/
+    }
     
     public void PlaySFX(AudioClip clip, float volume = 1f)
     {

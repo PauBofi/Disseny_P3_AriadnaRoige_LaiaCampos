@@ -17,7 +17,7 @@ public class LevelMenuManager : MonoBehaviour
     public Slider volumeSlider;
 
     public AudioClip soundButtons;
-    public AudioClip musicaMenu;
+    public AudioClip musicMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +35,7 @@ public class LevelMenuManager : MonoBehaviour
         volumeSlider.value = savedVolume;
         AudioListener.volume = savedVolume;
 
-        AudioManager.Instance.PlayMusic(musicaMenu, true);
+        AudioManager.Instance.PlayMusic(musicMenu);
 
         settingsPanel.SetActive(false);
     }
@@ -47,26 +47,22 @@ public class LevelMenuManager : MonoBehaviour
     }
     public void ButtonLevel0()
     {
-        AudioManager.Instance.PlaySFX(soundButtons);
-        AudioManager.Instance.StopMusic();
+        AudioManager.Instance.PlaySFX(soundButtons);        
         SceneManager.LoadScene("Tutorial");
     }
     public void ButtonLevel1()
     {
-        AudioManager.Instance.PlaySFX(soundButtons);
-        AudioManager.Instance.StopMusic();
+        AudioManager.Instance.PlaySFX(soundButtons);        
         SceneManager.LoadScene("Level 1");
     }
     public void ButtonLevel2()
     {
-        AudioManager.Instance.PlaySFX(soundButtons);
-        AudioManager.Instance.StopMusic();
+        AudioManager.Instance.PlaySFX(soundButtons);        
         SceneManager.LoadScene("Level 2");
     }
     public void ButtonLevelBoss()
     {
-        AudioManager.Instance.PlaySFX(soundButtons);
-        AudioManager.Instance.StopMusic();
+        AudioManager.Instance.PlaySFX(soundButtons);        
         SceneManager.LoadScene("Level 3");
     }
     public void ReturnMainMenu()

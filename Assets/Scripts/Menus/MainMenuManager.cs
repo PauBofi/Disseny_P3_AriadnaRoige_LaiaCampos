@@ -14,7 +14,7 @@ public class MainMenuManager : MonoBehaviour
     public Slider volumeSlider;
 
     public AudioClip soundButtons;
-    public AudioClip musicaMenu;
+    public AudioClip musicMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,7 @@ public class MainMenuManager : MonoBehaviour
         volumeSlider.value = savedVolume;
         AudioListener.volume = savedVolume;
 
-        AudioManager.Instance.PlayMusic(musicaMenu, true);
+        AudioManager.Instance.PlayMusic(musicMenu);
 
         settingsPanel.SetActive(false);
     }
@@ -41,7 +41,7 @@ public class MainMenuManager : MonoBehaviour
     }
     public void StartGame()
     {
-        AudioManager.Instance.PlaySFX(soundButtons);
+        AudioManager.Instance.PlaySFX(soundButtons);        
         SceneManager.LoadScene("LevelSelector");
     }
     public void OpenSettings()
