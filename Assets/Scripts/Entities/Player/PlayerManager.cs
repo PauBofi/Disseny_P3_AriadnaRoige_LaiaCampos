@@ -7,6 +7,8 @@ public class PlayerManager : MonoBehaviour
     public Transform respawnPoint; // Assign in Inspector
     public float deathYLevel = -10f;
 
+    public AudioClip soundHurt;
+
     // Start is called before the first frame update
     private void Update()
     {
@@ -21,6 +23,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (other.CompareTag("DeathZone"))
         {
+            AudioManager.Instance.PlaySFX(soundHurt);
             Debug.Log("PLAYER MORT // Falta pantalla Game Over");
             Respawn();
         }

@@ -26,6 +26,8 @@ public class Phantom : MonoBehaviour
     int currentHealth;
     int minHealth = 0;
 
+    public AudioClip soundDeath;
+    public AudioClip soundBullet;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -60,6 +62,7 @@ public class Phantom : MonoBehaviour
 
         if (currentHealth <= minHealth)
         {
+            AudioManager.Instance.PlaySFX(soundDeath);
             Destroy(gameObject);
         }
     }
@@ -93,7 +96,7 @@ public class Phantom : MonoBehaviour
     void Shoot(Vector2 direction)
     {
         if (!canShoot) return;
-
+        AudioManager.Instance.PlaySFX(soundBullet);
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
 
