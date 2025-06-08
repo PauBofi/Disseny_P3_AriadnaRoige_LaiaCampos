@@ -27,6 +27,8 @@ public class PlayerChangeManagement : MonoBehaviour
 
     private int minHealth = 0;
 
+    private float deathYLevel = -65f;
+    public GameObject RespawnPoint;
     void Start()
     {
         currentPlayer = Instantiate(rangedPrefab, transform.position, Quaternion.identity);
@@ -57,6 +59,17 @@ public class PlayerChangeManagement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X) && canSwitch)
         {
             SwitchCharacter();
+        }
+
+        if (currentPlayer.transform.position.y < deathYLevel)
+        {
+            currentPlayer.transform.position = RespawnPoint.transform.position;
+            Rigidbody rb = GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+            }
         }
     }
 
