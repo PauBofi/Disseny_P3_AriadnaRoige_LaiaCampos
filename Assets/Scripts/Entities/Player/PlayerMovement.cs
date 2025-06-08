@@ -89,11 +89,6 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("magnitude", rb.velocity.magnitude);
         //animator.SetBool("isShooting",/*bariable de shoot*/);
 
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            TakeDamage(1);
-        }
-
         manaRegenTimer += Time.deltaTime;
         if (manaRegenTimer >= manaRegenInterval)
         {

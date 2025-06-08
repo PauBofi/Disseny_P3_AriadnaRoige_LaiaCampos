@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 public class reahAttack : MonoBehaviour
 {
-    public GameObject attackHitbox;
+    public GameObject ReahHitbox;
     private Animator animator;
 
     public AudioClip soundAttackA;
@@ -11,7 +11,7 @@ public class reahAttack : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        attackHitbox.SetActive(false);
+        ReahHitbox.SetActive(false);
     }
 
     void Update()
@@ -32,8 +32,8 @@ public class reahAttack : MonoBehaviour
 
     IEnumerator EnableHitbox()
     {
-        attackHitbox.SetActive(true);
-        yield return new WaitForSeconds(0.2f);
-        attackHitbox.SetActive(false);
+        ReahHitbox.SetActive(true);
+        yield return new WaitForSeconds(0.7f);
+        ReahHitbox.SetActive(false);
     }
 }

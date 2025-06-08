@@ -198,7 +198,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3438967036801495039}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -233,7 +233,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3438967036801495039}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -409,7 +409,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   healthbar: {fileID: 0}
   maxHealth: 10
-  currentHealth: 0
   soundHurt: {fileID: 8300000, guid: c05c6f610e165714292cbea6ab9a6462, type: 3}
   manabar: {fileID: 0}
   maxMana: 8
@@ -426,7 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180d27273c3f51c44895ea60eb6f1abb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackHitbox: {fileID: 7049020446123335199}
+  ReahHitbox: {fileID: 7049020446123335199}
   soundAttackA: {fileID: 8300000, guid: 09f467353914b2548a4622df4beb2c29, type: 3}
   soundAttackB: {fileID: 8300000, guid: 1e75e04b87ef02f448d999299aefaf2c, type: 3}
 --- !u!1 &3710962303227542804

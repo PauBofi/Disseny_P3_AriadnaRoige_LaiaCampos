@@ -15,10 +15,6 @@ public class FinalBossBehaviour : MonoBehaviour
     private bool canAttack = true;
     private bool isAttacking = false;
 
-    public GameObject phantomPrefab;
-    public float phantomSpawnCooldown = 10f;
-    private bool canSpawn = true;
-
     public int maxHealth = 20;
     private int currentHealth;
 
@@ -51,11 +47,6 @@ public class FinalBossBehaviour : MonoBehaviour
             }
         }
 
-        if (canSpawn)
-        {
-            StartCoroutine(SpawnPhantom());
-        }
-
         if (currentHealth <= 0)
         {
             AudioManager.Instance.PlaySFX(soundDeath);
@@ -86,17 +77,6 @@ public class FinalBossBehaviour : MonoBehaviour
 
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
-    }
-
-    IEnumerator SpawnPhantom()
-    {
-        canSpawn = false;
-
-        Vector3 spawnPos = transform.position + new Vector3(Random.Range(-2f, 2f), 0, 0);
-        Instantiate(phantomPrefab, spawnPos, Quaternion.identity);
-
-        yield return new WaitForSeconds(phantomSpawnCooldown);
-        canSpawn = true;
     }
 
     public void TakeDamage(int damage)

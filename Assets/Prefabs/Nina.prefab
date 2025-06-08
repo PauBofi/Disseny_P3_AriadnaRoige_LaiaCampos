@@ -197,7 +197,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3438967036801495039}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -232,7 +232,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3438967036801495039}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -408,7 +408,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   healthbar: {fileID: 0}
   maxHealth: 10
-  currentHealth: 0
   soundHurt: {fileID: 8300000, guid: c05c6f610e165714292cbea6ab9a6462, type: 3}
   manabar: {fileID: 0}
   maxMana: 8
