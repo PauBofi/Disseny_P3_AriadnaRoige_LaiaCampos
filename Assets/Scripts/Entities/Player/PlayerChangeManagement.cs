@@ -29,6 +29,11 @@ public class PlayerChangeManagement : MonoBehaviour
 
     private float deathYLevel = -65f;
     public GameObject RespawnPoint;
+
+    private bool justSpawned = true;
+    private float spawnGraceTime = 1f;
+    private float spawnTimer;
+
     void Start()
     {
         currentPlayer = Instantiate(rangedPrefab, transform.position, Quaternion.identity);
@@ -44,10 +49,23 @@ public class PlayerChangeManagement : MonoBehaviour
         {
             p.player = currentPlayer.transform;
         }
+
+        spawnTimer = spawnGraceTime;
+        justSpawned = true;
     }
 
     void Update()
     {
+        if (justSpawned)
+        {
+            spawnTimer -= Time.deltaTime;
+            if (spawnTimer <= 0f)
+            {
+                justSpawned = false;
+            }
+            return;
+        }
+
         PlayerMovement playerMovement = currentPlayer.GetComponent<PlayerMovement>();
 
         if (playerMovement.currentHealth <= minHealth)
@@ -72,6 +90,7 @@ public class PlayerChangeManagement : MonoBehaviour
             }
         }
     }
+
 
     void SwitchCharacter()
     {

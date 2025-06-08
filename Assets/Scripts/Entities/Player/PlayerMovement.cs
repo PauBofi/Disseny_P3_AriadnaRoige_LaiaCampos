@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Health Bar HUD")]
     public Healthbar healthbar;
     public int maxHealth = 10;
-    public int currentHealth;
+    internal int currentHealth;
     public AudioClip soundHurt;
 
     [Header("Mana Bar HUD")]
