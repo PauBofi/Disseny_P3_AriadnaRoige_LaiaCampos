@@ -36834,7 +36834,7 @@ MonoBehaviour:
   HUD_Nina: {fileID: 2110775479}
   HUD_Reah: {fileID: 1875852410}
   soundChange: {fileID: 8300000, guid: 2754b1a0e20aa0e44b5a0c8bb06e7bbe, type: 3}
-  RespawnPoint: {fileID: 0}
+  RespawnPoint: {fileID: 395790124}
 --- !u!4 &1476676156
 Transform:
   m_ObjectHideFlags: 0
