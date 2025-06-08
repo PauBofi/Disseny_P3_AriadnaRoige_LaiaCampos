@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aca3e686cef5ed4690c7ba0c2fe0e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSource: {fileID: 2339627869266485991}
   sfxSource: {fileID: 2339627869266485991}
+  musicSource: {fileID: 2339627869266485991}
 --- !u!1 &3438967036801495039
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,7 +63,6 @@ GameObject:
   - component: {fileID: 575730905977348482}
   - component: {fileID: 698781621202365843}
   - component: {fileID: 5730484232630787855}
-  - component: {fileID: 2786200486126270057}
   - component: {fileID: 8889165670785878347}
   m_Layer: 0
   m_Name: Reah
@@ -415,21 +414,6 @@ MonoBehaviour:
   manabar: {fileID: 0}
   maxMana: 8
   manaRegenInterval: 3
---- !u!114 &2786200486126270057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3438967036801495039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86d9b5b9f407e6745a1308a50ba28fc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 0}
-  deathYLevel: -60
-  soundHurt: {fileID: 8300000, guid: c05c6f610e165714292cbea6ab9a6462, type: 3}
 --- !u!114 &8889165670785878347
 MonoBehaviour:
   m_ObjectHideFlags: 0
