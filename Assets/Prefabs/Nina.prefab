@@ -64,6 +64,7 @@ GameObject:
   - component: {fileID: 698781621202365843}
   - component: {fileID: 5730484232630787855}
   - component: {fileID: 5319195767959556802}
+  - component: {fileID: 2871340959413240923}
   m_Layer: 0
   m_Name: Nina
   m_TagString: Untagged
@@ -406,9 +407,6 @@ MonoBehaviour:
   wallSlideSpeed: 2
   wallJumpPower: {x: 5, y: 10}
   animator: {fileID: 0}
-  healthbar: {fileID: 0}
-  maxHealth: 10
-  soundHurt: {fileID: 8300000, guid: c05c6f610e165714292cbea6ab9a6462, type: 3}
   manabar: {fileID: 0}
   maxMana: 8
   manaRegenInterval: 3
@@ -428,6 +426,20 @@ MonoBehaviour:
   playerMovement: {fileID: 5730484232630787855}
   bulletSpeed: 15
   SoundBullet: {fileID: 8300000, guid: 1d0b9c029f3500a44afae91024e24210, type: 3}
+--- !u!114 &2871340959413240923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3438967036801495039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f138107c1970084439eb0f701b1aafc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  soundHurt: {fileID: 8300000, guid: c05c6f610e165714292cbea6ab9a6462, type: 3}
 --- !u!1 &3710962303227542804
 GameObject:
   m_ObjectHideFlags: 0

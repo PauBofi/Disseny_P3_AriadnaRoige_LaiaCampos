@@ -25,7 +25,7 @@ public class PlayerChangeManagement : MonoBehaviour
 
     public AudioClip soundChange;
 
-    private int minHealth = 0;
+    //private int minHealth = 0;
 
     private float deathYLevel = -65f;
     public GameObject RespawnPoint;
@@ -38,10 +38,13 @@ public class PlayerChangeManagement : MonoBehaviour
     {
         currentPlayer = Instantiate(rangedPrefab, transform.position, Quaternion.identity);
         PlayerMovement playerMovement = currentPlayer.GetComponent<PlayerMovement>();
-        playerMovement.healthbar = ScenealHealthBar;
-        playerMovement.manabar = ScenealManaBar;
+        PlayerHealth health = currentPlayer.GetComponent<PlayerHealth>();
+        health.Initialize(ScenealHealthBar);
+        playerMovement.Initialize(ScenealManaBar);
         cameraScript.player = currentPlayer.transform;
+        
 
+        health.OnDeath += HandlePlayerDeath;
         OnPlayerChanged?.Invoke(currentPlayer.transform);
 
         Phantom[] phantoms = FindObjectsOfType<Phantom>();
@@ -68,11 +71,11 @@ public class PlayerChangeManagement : MonoBehaviour
 
         PlayerMovement playerMovement = currentPlayer.GetComponent<PlayerMovement>();
 
-        if (playerMovement.currentHealth <= minHealth)
+        /*if (playerMovement.currentHealth <= minHealth)
         {
             SceneManager.LoadScene("GameOver");
             Destroy(currentPlayer);
-        }
+        }*/
 
         if (Input.GetKeyDown(KeyCode.X) && canSwitch)
         {
@@ -105,7 +108,8 @@ public class PlayerChangeManagement : MonoBehaviour
         {
             currentPlayer = Instantiate(meleePrefab, position, rotation);
             PlayerMovement playerMovement = currentPlayer.GetComponent<PlayerMovement>();
-            playerMovement.healthbar = ScenealHealthBar;
+            PlayerHealth health = currentPlayer.GetComponent<PlayerHealth>();
+            health.Initialize(ScenealHealthBar);
             AudioManager.Instance.PlaySFX(soundChange);
             HUD_Nina.SetActive(false);
             HUD_Reah.SetActive(true);
@@ -114,8 +118,9 @@ public class PlayerChangeManagement : MonoBehaviour
         {
             currentPlayer = Instantiate(rangedPrefab, position, rotation);
             PlayerMovement playerMovement = currentPlayer.GetComponent<PlayerMovement>();
-            playerMovement.healthbar = ScenealHealthBar;
-            playerMovement.manabar = ScenealManaBar;
+            PlayerHealth health = currentPlayer.GetComponent<PlayerHealth>();
+            health.Initialize(ScenealHealthBar);
+            playerMovement.Initialize(ScenealManaBar);
             AudioManager.Instance.PlaySFX(soundChange);
             HUD_Reah.SetActive(false);
             HUD_Nina.SetActive(true);
@@ -135,10 +140,19 @@ public class PlayerChangeManagement : MonoBehaviour
         OnPlayerChanged?.Invoke(currentPlayer.transform);
     }
 
-
+    void HandlePlayerDeath()
+    {
+        SceneManager.LoadScene("GameOver");
+        Destroy(currentPlayer);
+    }
     void ResetSwitch()
     {
         canSwitch = true;
+    }
+
+    public GameObject GetCurrentPlayer()
+    {
+        return currentPlayer;
     }
 
 }

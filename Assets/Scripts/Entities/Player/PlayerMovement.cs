@@ -49,11 +49,11 @@ public class PlayerMovement : MonoBehaviour
     [Header("Animator")]
     public Animator animator;
 
-    [Header("Health Bar HUD")]
+    /*[Header("Health Bar HUD")]
     public Healthbar healthbar;
     public int maxHealth = 10;
     internal int currentHealth;
-    public AudioClip soundHurt;
+    public AudioClip soundHurt;*/
 
     [Header("Mana Bar HUD")]
     public Manabar manabar;
@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        InitializeHealth();
+        //InitializeHealth();
         InitializeMana();
     }
 
@@ -231,7 +231,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-    public void TakeDamage(int damage)
+    /*public void TakeDamage(int damage)
     {
         AudioManager.Instance.PlaySFX(soundHurt);
         currentHealth -= damage;
@@ -244,7 +244,7 @@ public class PlayerMovement : MonoBehaviour
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
         healthbar.SetHealth(currentHealth);
-    }
+    }*/
 
     public void InitializeMana()
     {
@@ -269,6 +269,13 @@ public class PlayerMovement : MonoBehaviour
             manabar.SetMana(currentMana);
         }
     }
+
+    public void Initialize(Manabar manabar)
+    {
+        this.manabar = manabar;
+        InitializeMana();
+    }
+
 
 
     private void OnDrawGizmosSelected()

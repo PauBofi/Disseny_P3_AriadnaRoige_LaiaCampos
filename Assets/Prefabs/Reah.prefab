@@ -64,6 +64,7 @@ GameObject:
   - component: {fileID: 698781621202365843}
   - component: {fileID: 5730484232630787855}
   - component: {fileID: 8889165670785878347}
+  - component: {fileID: 2402627609320198652}
   m_Layer: 0
   m_Name: Reah
   m_TagString: Untagged
@@ -407,9 +408,6 @@ MonoBehaviour:
   wallSlideSpeed: 2
   wallJumpPower: {x: 5, y: 10}
   animator: {fileID: 0}
-  healthbar: {fileID: 0}
-  maxHealth: 10
-  soundHurt: {fileID: 8300000, guid: c05c6f610e165714292cbea6ab9a6462, type: 3}
   manabar: {fileID: 0}
   maxMana: 8
   manaRegenInterval: 3
@@ -428,6 +426,21 @@ MonoBehaviour:
   ReahHitbox: {fileID: 7049020446123335199}
   soundAttackA: {fileID: 8300000, guid: 09f467353914b2548a4622df4beb2c29, type: 3}
   soundAttackB: {fileID: 8300000, guid: 1e75e04b87ef02f448d999299aefaf2c, type: 3}
+--- !u!114 &2402627609320198652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3438967036801495039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f138107c1970084439eb0f701b1aafc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  healthbar: {fileID: 0}
+  soundHurt: {fileID: 8300000, guid: c05c6f610e165714292cbea6ab9a6462, type: 3}
 --- !u!1 &3710962303227542804
 GameObject:
   m_ObjectHideFlags: 0

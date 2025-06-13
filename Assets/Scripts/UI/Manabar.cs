@@ -7,7 +7,7 @@ public class Manabar : MonoBehaviour
 {
     Slider manaSlider;
 
-    private void Start()
+    private void Awake()
     {
         manaSlider = GetComponent<Slider>();
     }

@@ -1735,6 +1735,7 @@ MonoBehaviour:
   switchCooldown: 5
   ScenealHealthBar: {fileID: 783500397}
   ScenealManaBar: {fileID: 1963162312}
+  playerHealth: {fileID: 0}
   HUD_Nina: {fileID: 769408085}
   HUD_Reah: {fileID: 773094879}
   soundChange: {fileID: 8300000, guid: 2754b1a0e20aa0e44b5a0c8bb06e7bbe, type: 3}
