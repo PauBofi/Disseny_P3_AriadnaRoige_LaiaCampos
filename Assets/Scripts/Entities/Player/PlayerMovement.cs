@@ -55,12 +55,12 @@ public class PlayerMovement : MonoBehaviour
     internal int currentHealth;
     public AudioClip soundHurt;*/
 
-    [Header("Mana Bar HUD")]
+    /*[Header("Mana Bar HUD")]
     public Manabar manabar;
     public int maxMana = 8;
     internal int currentMana;
     public float manaRegenInterval = 3f;
-    private float manaRegenTimer;
+    private float manaRegenTimer;*/
 
 
 
@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         //InitializeHealth();
-        InitializeMana();
+        //InitializeMana();
     }
 
     void Update()
@@ -89,12 +89,12 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("magnitude", rb.velocity.magnitude);
         //animator.SetBool("isShooting",/*bariable de shoot*/);
 
-        manaRegenTimer += Time.deltaTime;
+        /*manaRegenTimer += Time.deltaTime;
         if (manaRegenTimer >= manaRegenInterval)
         {
             RegenerateMana(1);
             manaRegenTimer = 0f;
-        }
+        }*/
     }
 
     private void FixedUpdate()
@@ -244,7 +244,7 @@ public class PlayerMovement : MonoBehaviour
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
         healthbar.SetHealth(currentHealth);
-    }*/
+    }
 
     public void InitializeMana()
     {
@@ -275,7 +275,7 @@ public class PlayerMovement : MonoBehaviour
         this.manabar = manabar;
         InitializeMana();
     }
-
+*/
 
 
     private void OnDrawGizmosSelected()

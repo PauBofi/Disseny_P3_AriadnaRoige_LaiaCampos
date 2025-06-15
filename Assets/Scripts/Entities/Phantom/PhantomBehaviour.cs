@@ -22,7 +22,7 @@ public class Phantom : MonoBehaviour
     private Rigidbody2D rb;
     private int directionX = 1;
 
-    int maxHealth = 5;
+    public int maxHealth = 10;
     int currentHealth;
     int minHealth = 0;
 

@@ -38,9 +38,20 @@ public class PlayerChangeManagement : MonoBehaviour
     {
         currentPlayer = Instantiate(rangedPrefab, transform.position, Quaternion.identity);
         PlayerMovement playerMovement = currentPlayer.GetComponent<PlayerMovement>();
+
         PlayerHealth health = currentPlayer.GetComponent<PlayerHealth>();
         health.Initialize(ScenealHealthBar);
-        playerMovement.Initialize(ScenealManaBar);
+
+        NinaMana mana = currentPlayer.GetComponent<NinaMana>();
+        mana.Initialize(ScenealManaBar);
+
+        NinaShoot shoot = currentPlayer.GetComponent<NinaShoot>();
+        if (shoot != null && mana != null)
+        {
+            shoot.Initialize(mana);
+        }
+
+        //playerMovement.Initialize(ScenealManaBar);
         cameraScript.player = currentPlayer.transform;
         
 
@@ -118,10 +129,21 @@ public class PlayerChangeManagement : MonoBehaviour
         {
             currentPlayer = Instantiate(rangedPrefab, position, rotation);
             PlayerMovement playerMovement = currentPlayer.GetComponent<PlayerMovement>();
+
             PlayerHealth health = currentPlayer.GetComponent<PlayerHealth>();
             health.Initialize(ScenealHealthBar);
-            playerMovement.Initialize(ScenealManaBar);
+
+            NinaMana mana = currentPlayer.GetComponent<NinaMana>();
+            mana.Initialize(ScenealManaBar);
+
+            NinaShoot shoot = currentPlayer.GetComponent<NinaShoot>();
+            if (shoot != null && mana != null)
+            {
+                shoot.Initialize(mana);
+            }
+
             AudioManager.Instance.PlaySFX(soundChange);
+
             HUD_Reah.SetActive(false);
             HUD_Nina.SetActive(true);
         }

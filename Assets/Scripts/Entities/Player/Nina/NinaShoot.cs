@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerShoot : MonoBehaviour
+public class NinaShoot : MonoBehaviour
 {
     public GameObject bulletPrefab;
     //[SerializeField] Manabar manabar;
-    [SerializeField] private PlayerMovement playerMovement;
+    //[SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private NinaMana ninaMana;
 
     public float bulletSpeed = 50f;
     //private int Mana = 30;
@@ -23,7 +24,7 @@ public class PlayerShoot : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && playerMovement.currentMana > 0)
+        if (Input.GetMouseButtonDown(0) && ninaMana.currentMana > 0)
         {
             Shoot();
         }
@@ -40,7 +41,13 @@ public class PlayerShoot : MonoBehaviour
 
         Destroy(bullet, timeToDestroy);
 
-        playerMovement.UseMana(1); // Esto actualiza el valor y la barra
+        ninaMana.UseMana(1); // Esto actualiza el valor y la barra
     }
+
+    public void Initialize(NinaMana ninaMana)
+    {
+        this.ninaMana = ninaMana;
+    }
+
 
 }
