@@ -6,33 +6,33 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Project/Scenes/Menus/MainMenu.unity
     guid: a648bb449abefd143900d1f2e0e92c3e
   - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
+    path: Assets/Project/Scenes/Levels/Tutorial.unity
     guid: 9487faf2b495d614d931e737021e3774
   - enabled: 0
     path: Assets/Scenes/Level 1 Rhea.unity
     guid: e771b93981c20af4d8596741c65ff4b5
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Project/Scenes/Misc/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/LevelSelector.unity
+    path: Assets/Project/Scenes/Menus/LevelSelector.unity
     guid: 2f0217ccf9a9e0741925562d1f65eb2d
   - enabled: 1
-    path: Assets/Scenes/Level 1.unity
+    path: Assets/Project/Scenes/Levels/Level1.unity
     guid: 216c55b8b40154f4cbc321eaf913e0d4
   - enabled: 1
-    path: Assets/Scenes/Level 2.unity
+    path: Assets/Project/Scenes/Levels/Level2.unity
     guid: f84ff0c5afc38724f913a1eb7db00b89
   - enabled: 1
-    path: Assets/Scenes/Level 3.unity
+    path: Assets/Project/Scenes/Levels/Level3.unity
     guid: 3a236997820dee3408d31a9e9db91cc1
   - enabled: 1
-    path: Assets/Scenes/YouWin.unity
+    path: Assets/Project/Scenes/Menus/YouWin.unity
     guid: 554f7019f232c6b4ab705c625bcc1285
   - enabled: 1
-    path: Assets/Scenes/GameOver.unity
+    path: Assets/Project/Scenes/Menus/GameOver.unity
     guid: e82041f8e96795e4b81bd769a7906bf6
   m_configObjects: {}
