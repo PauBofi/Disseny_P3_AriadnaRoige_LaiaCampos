@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 08e49b67b23a2ee43a9479e63cfbee7d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - bulletPrefab: {instanceID: 0}
+  - playerMovement: {instanceID: 0}
+  - audioManager: {instanceID: 0}
+  - miSonido: {fileID: 8300000, guid: 1d0b9c029f3500a44afae91024e24210, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

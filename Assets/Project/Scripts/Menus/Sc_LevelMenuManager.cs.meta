@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 1a4ba6a3e66882d45ba24879a595b467
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - buttonLevel0: {instanceID: 0}
+  - buttonLevel1: {instanceID: 0}
+  - buttonLevel2: {instanceID: 0}
+  - buttonLevelBoss: {instanceID: 0}
+  - returnMainMenu: {instanceID: 0}
+  - levelButtonSettings: {instanceID: 0}
+  - settingsPanel: {instanceID: 0}
+  - volumeSlider: {instanceID: 0}
+  - audioManager: {instanceID: 0}
+  - miSonido: {fileID: 8300000, guid: 3c7e36f23c3227347b69d29a4cfb1b84, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
