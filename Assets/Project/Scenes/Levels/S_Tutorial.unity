@@ -702,7 +702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 148459503}
   m_Layer: 5
-  m_Name: Nina
+  m_Name: Ui_NinaHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1222,7 +1222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 269043637}
   m_Layer: 5
-  m_Name: Attacks
+  m_Name: Ui_AttacksHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2358,6 +2358,7 @@ MonoBehaviour:
   HUD_Nina: {fileID: 148459502}
   HUD_Reah: {fileID: 1024414305}
   soundChange: {fileID: 8300000, guid: 2754b1a0e20aa0e44b5a0c8bb06e7bbe, type: 3}
+  deathYLevel: -65
   RespawnPoint: {fileID: 395790124}
 --- !u!1 &650261887
 GameObject:
@@ -2771,7 +2772,7 @@ GameObject:
   m_Component:
   - component: {fileID: 779009779}
   m_Layer: 0
-  m_Name: Background
+  m_Name: Bg_Enviorment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2892,7 +2893,7 @@ GameObject:
   m_Component:
   - component: {fileID: 820996860}
   m_Layer: 0
-  m_Name: Mountains
+  m_Name: Bg_Mountains
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3045,7 +3046,7 @@ GameObject:
   m_Component:
   - component: {fileID: 898645020}
   m_Layer: 5
-  m_Name: Health
+  m_Name: Ui_HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3533,7 +3534,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1024414306}
   m_Layer: 5
-  m_Name: Reah
+  m_Name: Ui_ReahHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3933,7 +3934,7 @@ GameObject:
   - component: {fileID: 1233628243}
   - component: {fileID: 1233628242}
   m_Layer: 0
-  m_Name: Enemy2
+  m_Name: En_Enemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4001,8 +4002,10 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1
-  WallRaycastLength: 2
   maxHealth: 5
+  raycastLength: 6
+  raycastGroundAheadLenght: 5
+  raycastWallAheadLenght: 2
   soundDeath: {fileID: 8300000, guid: 99d01bae19610a24f9a4fcb41bb10302, type: 3}
   soundBullet: {fileID: 8300000, guid: 1d0b9c029f3500a44afae91024e24210, type: 3}
 --- !u!70 &1233628244
@@ -4129,7 +4132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1239693191}
   m_Layer: 0
-  m_Name: Stones
+  m_Name: Bg_Stones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26884,7 +26887,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1717808291}
   m_Layer: 0
-  m_Name: Decorations
+  m_Name: Bg_Decorations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27089,7 +27092,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4478816723102558223, guid: 7fb016cdd8d765f429bd0790e193c9ae, type: 3}
       propertyPath: m_Name
-      value: Background (1)
+      value: Bg_Layer1
       objectReference: {fileID: 0}
     - target: {fileID: 4478816723102558223, guid: 7fb016cdd8d765f429bd0790e193c9ae, type: 3}
       propertyPath: m_IsActive
@@ -27329,7 +27332,7 @@ GameObject:
   - component: {fileID: 1846053134}
   - component: {fileID: 1846053133}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Ui_HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27385,7 +27388,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1943865400}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -27517,7 +27520,7 @@ GameObject:
   - component: {fileID: 1928232325}
   - component: {fileID: 1928232324}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: Lv_Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30407,7 +30410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2144880734}
   m_Layer: 0
-  m_Name: Trees
+  m_Name: Bg_Trees
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30505,7 +30508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7947213009388848062, guid: bac7160b0af86484f857805b37b53772, type: 3}
       propertyPath: m_Name
-      value: Enemy1
+      value: En_Enemy1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

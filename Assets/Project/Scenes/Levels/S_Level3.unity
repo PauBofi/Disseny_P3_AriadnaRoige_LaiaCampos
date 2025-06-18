@@ -267,7 +267,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 41.27499, y: 0}
+  m_AnchoredPosition: {x: 41.274994, y: 0}
   m_SizeDelta: {x: 82.550026, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &79069519
@@ -828,6 +828,7 @@ MonoBehaviour:
   HUD_Nina: {fileID: 492793389}
   HUD_Reah: {fileID: 1179118161}
   soundChange: {fileID: 8300000, guid: 2754b1a0e20aa0e44b5a0c8bb06e7bbe, type: 3}
+  deathYLevel: -65
   RespawnPoint: {fileID: 395790124}
 --- !u!4 &290128013
 Transform:
@@ -857,7 +858,7 @@ GameObject:
   - component: {fileID: 364120791}
   - component: {fileID: 364120790}
   m_Layer: 5
-  m_Name: 'Canvas '
+  m_Name: Ui_HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -913,7 +914,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1943865400}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -1027,7 +1028,7 @@ GameObject:
   m_Component:
   - component: {fileID: 470625498}
   m_Layer: 0
-  m_Name: Cave
+  m_Name: Bg_Cave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1161,7 +1162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 492793390}
   m_Layer: 5
-  m_Name: Nina
+  m_Name: Ui_NinaHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1599,7 +1600,7 @@ GameObject:
   m_Component:
   - component: {fileID: 779009779}
   m_Layer: 0
-  m_Name: Background
+  m_Name: Bg_Enviorment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1730,7 +1731,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 44.57, y: 0}
+  m_AnchoredPosition: {x: 44.570007, y: 0}
   m_SizeDelta: {x: 169.6, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &827270360
@@ -2111,7 +2112,7 @@ GameObject:
   - component: {fileID: 1022286314}
   - component: {fileID: 1022286315}
   m_Layer: 5
-  m_Name: BossHealthBar
+  m_Name: Ui_BossHealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2212,7 +2213,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1179118162}
   m_Layer: 5
-  m_Name: Reah
+  m_Name: Ui_ReahHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11822,7 +11823,7 @@ GameObject:
   - component: {fileID: 1928232325}
   - component: {fileID: 1928232324}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: Lv_Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35176,7 +35177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2083866922}
   m_Layer: 5
-  m_Name: Health
+  m_Name: Ui_HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

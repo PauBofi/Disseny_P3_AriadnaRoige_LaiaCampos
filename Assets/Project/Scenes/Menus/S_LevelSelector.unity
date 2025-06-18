@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 262620377}
   - component: {fileID: 262620376}
   m_Layer: 5
-  m_Name: SettingsPanel
+  m_Name: Ui_VolumePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -520,7 +520,7 @@ GameObject:
   - component: {fileID: 340664606}
   - component: {fileID: 340664605}
   m_Layer: 5
-  m_Name: ButtonLevel_2
+  m_Name: Ui_ButtonLevel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1079,7 +1079,7 @@ GameObject:
   - component: {fileID: 609878303}
   - component: {fileID: 609878302}
   m_Layer: 5
-  m_Name: ReturnMainMenu
+  m_Name: Ui_ButtonReturnToMainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1245,7 +1245,7 @@ GameObject:
   - component: {fileID: 776216451}
   - component: {fileID: 776216450}
   m_Layer: 5
-  m_Name: Level_ButtonSettings
+  m_Name: Ui_ButtonSettings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1511,7 +1511,7 @@ GameObject:
   - component: {fileID: 1000785925}
   - component: {fileID: 1000785924}
   m_Layer: 5
-  m_Name: ButtonLevel_Boss
+  m_Name: Ui_ButtonLevelBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2299,7 +2299,7 @@ GameObject:
   - component: {fileID: 1485317906}
   - component: {fileID: 1485317907}
   m_Layer: 0
-  m_Name: LevelMenuManager
+  m_Name: Ui_LevelMenuManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2355,7 +2355,7 @@ GameObject:
   - component: {fileID: 1516115204}
   - component: {fileID: 1516115203}
   m_Layer: 5
-  m_Name: ButtonLevel_0
+  m_Name: Ui_ButtonTutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2619,7 +2619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1680518262}
   m_Layer: 0
-  m_Name: Decoration
+  m_Name: Ui_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2748,7 +2748,7 @@ GameObject:
   - component: {fileID: 1724134581}
   - component: {fileID: 1724134580}
   m_Layer: 5
-  m_Name: ButtonLevel_1
+  m_Name: Ui_ButtonLevel1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2985,7 +2985,7 @@ GameObject:
   - component: {fileID: 1876029395}
   - component: {fileID: 1876029394}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Ui
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
