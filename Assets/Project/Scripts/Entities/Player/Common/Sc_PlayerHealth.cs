@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System;
 public class PlayerHealth : MonoBehaviour
 {
     [Header("Health Settings")]
@@ -10,10 +10,11 @@ public class PlayerHealth : MonoBehaviour
     [Header("Sound")]
     public AudioClip soundHurt;
 
-    public System.Action OnDeath;
+    public Action OnDeath;
 
     private HealthBar healthbar;
 
+    //Inicializa la barra de vida
     public void Initialize(HealthBar healthbar)
     {
         this.healthbar = healthbar;
@@ -22,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
         this.healthbar.SetHealth(currentHealth);
     }
 
+    //Gestiona el daño recibido
     public void TakeDamage(int damage)
     {
         AudioManager.Instance.PlaySFX(soundHurt);

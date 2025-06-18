@@ -18,13 +18,15 @@ public class Phantom : MonoBehaviour
     public LayerMask playerLayer;
 
     [Range(0.5f, 2.5f)]
-    [SerializeField] float WallRaycastLength = 2.0f;
     private Rigidbody2D rb;
     private int directionX = 1;
 
     public int maxHealth = 10;
-    int currentHealth;
-    int minHealth = 0;
+    private int currentHealth;
+    private int minHealth = 0;
+    public float raycastLength = 6f;
+    public float raycastGroundAheadLenght = 5f;
+    public float raycastWallAheadLenght = 2f;
 
     public AudioClip soundDeath;
     public AudioClip soundBullet;
@@ -36,7 +38,7 @@ public class Phantom : MonoBehaviour
 
     void Update()
     {
-        float raycastLength = 6f;
+        //Se crea una array con las direcciones de los 6 raycast que detectaran al jugador
         Vector2[] directions =
         {
             Vector2.right,
@@ -47,11 +49,13 @@ public class Phantom : MonoBehaviour
             (Vector2.up + Vector2.left).normalized
         };
 
+        //Recorre la array y crea un raycast por cada direccion. Usando el raycastLenght que es publico
         foreach (Vector2 d in directions)
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, d, raycastLength, playerLayer);
             Debug.DrawRay(transform.position, d * raycastLength, Color.red);
 
+            //Si en algun frame alguno de estos raycast detecta algo y es el player, se le asigna una direccion hacia el player y dispara
             if (hit.collider != null && hit.collider.transform == player)
             {
                 Vector2 direction = new Vector2(player.position.x - transform.position.x, player.position.y - transform.position.y).normalized;
@@ -60,6 +64,7 @@ public class Phantom : MonoBehaviour
             }
         }
 
+        //Gestor de muerte basico
         if (currentHealth <= minHealth)
         {
             AudioManager.Instance.PlaySFX(soundDeath);
@@ -69,12 +74,15 @@ public class Phantom : MonoBehaviour
 
     void FixedUpdate()
     {
-        RaycastHit2D groundAhead = Physics2D.Raycast(transform.position + new Vector3(directionX * 0.5f, 0, 0), Vector2.down, 5f, groundLayer);
-        Debug.DrawRay(transform.position + new Vector3(directionX * 0.5f, 0, 0), Vector2.down * 2f, Color.blue);
+        //Raycast proyactado hacia abajo delante del jugador para ver si hay suelo o no
+        RaycastHit2D groundAhead = Physics2D.Raycast(transform.position + new Vector3(directionX * 0.5f, 0, 0), Vector2.down, raycastGroundAheadLenght, groundLayer);
+        Debug.DrawRay(transform.position + new Vector3(directionX * 0.5f, 0, 0), Vector2.down * raycastGroundAheadLenght, Color.blue);
 
-        RaycastHit2D wallAhead = Physics2D.Raycast(transform.position, Vector2.right * directionX , WallRaycastLength, wallLayer);
-        Debug.DrawRay(transform.position , Vector2.right * directionX * WallRaycastLength, Color.magenta);
+        //Raycast proyectado recto hacia la direccion del fantasma para ver si hay una pared
+        RaycastHit2D wallAhead = Physics2D.Raycast(transform.position, Vector2.right * directionX , raycastWallAheadLenght, wallLayer);
+        Debug.DrawRay(transform.position , Vector2.right * directionX * raycastWallAheadLenght, Color.magenta);
 
+        //Si no se detecta suelo o se detecta una pared delante, se gira el fantasma
         if (!groundAhead.collider || wallAhead.collider)
         {
             directionX *= -1;

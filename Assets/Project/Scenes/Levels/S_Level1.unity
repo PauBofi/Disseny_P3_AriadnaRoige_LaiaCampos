@@ -1424,7 +1424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 432295215}
   m_Layer: 5
-  m_Name: Health
+  m_Name: Ui_HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1715,7 +1715,7 @@ GameObject:
   - component: {fileID: 530186773}
   - component: {fileID: 530186772}
   m_Layer: 0
-  m_Name: Enemy3
+  m_Name: En_Enemy3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1783,8 +1783,10 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1
-  WallRaycastLength: 2
   maxHealth: 10
+  raycastLength: 6
+  raycastGroundAheadLenght: 5
+  raycastWallAheadLenght: 2
   soundDeath: {fileID: 8300000, guid: 99d01bae19610a24f9a4fcb41bb10302, type: 3}
   soundBullet: {fileID: 8300000, guid: 1d0b9c029f3500a44afae91024e24210, type: 3}
 --- !u!70 &530186774
@@ -1956,7 +1958,7 @@ GameObject:
   - component: {fileID: 573328176}
   - component: {fileID: 573328177}
   m_Layer: 0
-  m_Name: Confiner
+  m_Name: Camera_Confiner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2432,7 +2434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 779009779}
   m_Layer: 0
-  m_Name: Background
+  m_Name: Bg_Enviorment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2590,7 +2592,7 @@ GameObject:
   m_Component:
   - component: {fileID: 820996860}
   m_Layer: 0
-  m_Name: BackgroundMountains
+  m_Name: Bg_Mountains
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3544,7 +3546,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1239693191}
   m_Layer: 0
-  m_Name: Stones
+  m_Name: Bg_Stones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36720,6 +36722,7 @@ MonoBehaviour:
   HUD_Nina: {fileID: 2110775479}
   HUD_Reah: {fileID: 1875852410}
   soundChange: {fileID: 8300000, guid: 2754b1a0e20aa0e44b5a0c8bb06e7bbe, type: 3}
+  deathYLevel: -65
   RespawnPoint: {fileID: 395790124}
 --- !u!4 &1476676156
 Transform:
@@ -37060,7 +37063,7 @@ GameObject:
   - component: {fileID: 1626957862}
   - component: {fileID: 1626957861}
   m_Layer: 0
-  m_Name: Enemy1
+  m_Name: En_Enemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37128,8 +37131,10 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1
-  WallRaycastLength: 2
   maxHealth: 10
+  raycastLength: 6
+  raycastGroundAheadLenght: 5
+  raycastWallAheadLenght: 2
   soundDeath: {fileID: 8300000, guid: 99d01bae19610a24f9a4fcb41bb10302, type: 3}
   soundBullet: {fileID: 8300000, guid: 1d0b9c029f3500a44afae91024e24210, type: 3}
 --- !u!70 &1626957863
@@ -37415,7 +37420,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4478816723102558223, guid: 7fb016cdd8d765f429bd0790e193c9ae, type: 3}
       propertyPath: m_Name
-      value: Background (2)
+      value: Bg_Layer2
       objectReference: {fileID: 0}
     - target: {fileID: 6773648271645749057, guid: 7fb016cdd8d765f429bd0790e193c9ae, type: 3}
       propertyPath: m_LocalPosition.y
@@ -37496,7 +37501,7 @@ GameObject:
   - component: {fileID: 1711866394}
   - component: {fileID: 1711866393}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Ui_HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37599,7 +37604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1717808291}
   m_Layer: 0
-  m_Name: Decorations
+  m_Name: Bg_Decorations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37724,7 +37729,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4478816723102558223, guid: 7fb016cdd8d765f429bd0790e193c9ae, type: 3}
       propertyPath: m_Name
-      value: Background (1)
+      value: Bg_Layer1
       objectReference: {fileID: 0}
     - target: {fileID: 6773648271645749057, guid: 7fb016cdd8d765f429bd0790e193c9ae, type: 3}
       propertyPath: m_LocalPosition.y
@@ -38120,7 +38125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1875852411}
   m_Layer: 5
-  m_Name: Reah
+  m_Name: Ui_ReahHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38159,7 +38164,7 @@ GameObject:
   - component: {fileID: 1898711506}
   - component: {fileID: 1898711505}
   m_Layer: 0
-  m_Name: Enemy4
+  m_Name: En_Enemy4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38227,8 +38232,10 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1
-  WallRaycastLength: 2
   maxHealth: 10
+  raycastLength: 6
+  raycastGroundAheadLenght: 5
+  raycastWallAheadLenght: 2
   soundDeath: {fileID: 8300000, guid: 99d01bae19610a24f9a4fcb41bb10302, type: 3}
   soundBullet: {fileID: 8300000, guid: 1d0b9c029f3500a44afae91024e24210, type: 3}
 --- !u!70 &1898711507
@@ -38360,7 +38367,7 @@ GameObject:
   - component: {fileID: 1904899503}
   - component: {fileID: 1904899502}
   m_Layer: 0
-  m_Name: Enemy2
+  m_Name: En_Enemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38428,8 +38435,10 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1
-  WallRaycastLength: 2
   maxHealth: 10
+  raycastLength: 6
+  raycastGroundAheadLenght: 5
+  raycastWallAheadLenght: 2
   soundDeath: {fileID: 8300000, guid: 99d01bae19610a24f9a4fcb41bb10302, type: 3}
   soundBullet: {fileID: 8300000, guid: 1d0b9c029f3500a44afae91024e24210, type: 3}
 --- !u!70 &1904899504
@@ -38557,7 +38566,7 @@ GameObject:
   - component: {fileID: 1928232325}
   - component: {fileID: 1928232324}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: Lv_Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38715,7 +38724,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1999289236}
   m_Layer: 5
-  m_Name: Attacks
+  m_Name: Ui_AttacksHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44753,7 +44762,7 @@ GameObject:
   - component: {fileID: 2087746115}
   - component: {fileID: 2087746114}
   m_Layer: 0
-  m_Name: Enemy5
+  m_Name: En_Enemy5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44821,8 +44830,10 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1
-  WallRaycastLength: 2
   maxHealth: 10
+  raycastLength: 6
+  raycastGroundAheadLenght: 5
+  raycastWallAheadLenght: 2
   soundDeath: {fileID: 8300000, guid: 99d01bae19610a24f9a4fcb41bb10302, type: 3}
   soundBullet: {fileID: 8300000, guid: 1d0b9c029f3500a44afae91024e24210, type: 3}
 --- !u!70 &2087746116
@@ -45059,7 +45070,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2110775480}
   m_Layer: 5
-  m_Name: Nina
+  m_Name: Ui_NinaHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45411,7 +45422,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2144880734}
   m_Layer: 0
-  m_Name: Trees
+  m_Name: Bg_Trees
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

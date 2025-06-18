@@ -15,6 +15,7 @@ public class NinaMana : MonoBehaviour
         InitializeMana();
     }
 
+    //Aumenta cada frame el manaRegenTimer, cuando es mas grande o igual que 3, regenera uno de mana y reinicia el contador
     void Update()
     {
         manaRegenTimer += Time.deltaTime;
@@ -32,6 +33,7 @@ public class NinaMana : MonoBehaviour
         manabar.SetMana(currentMana);
     }
 
+    //NinaShoot llama a esta funcion que gestiona el gasto de mana cuando dispara
     public void UseMana(int amount)
     {
         currentMana -= amount;
@@ -39,6 +41,7 @@ public class NinaMana : MonoBehaviour
         manabar.SetMana(currentMana);
     }
 
+    //Si el mana no esta al maximo, se regenera la cantidad de mana que se le ha asignado a la funcion (1)
     public void RegenerateMana(int amount)
     {
         if (currentMana < maxMana)

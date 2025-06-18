@@ -9,7 +9,6 @@ public class PlayerChangeManagement : MonoBehaviour
     public CameraScript cameraScript;
     public GameObject rangedPrefab;
     public GameObject meleePrefab;
-    //public FinalBossBehaviour finalBossBehaviour;
 
     private GameObject currentPlayer;
     private bool isRanged = true;
@@ -25,9 +24,7 @@ public class PlayerChangeManagement : MonoBehaviour
 
     public AudioClip soundChange;
 
-    //private int minHealth = 0;
-
-    private float deathYLevel = -65f;
+    public float deathYLevel = -65f;
     public GameObject RespawnPoint;
 
     private bool justSpawned = true;
@@ -36,12 +33,15 @@ public class PlayerChangeManagement : MonoBehaviour
 
     void Start()
     {
+        //Se instancia el jugador al inicio. Siempre la Nina
         currentPlayer = Instantiate(rangedPrefab, transform.position, Quaternion.identity);
         PlayerMovement playerMovement = currentPlayer.GetComponent<PlayerMovement>();
 
+        //Se llama a la función del script de PlayerHealth mediante una referencia que pone la barra de vida.
         PlayerHealth health = currentPlayer.GetComponent<PlayerHealth>();
         health.Initialize(ScenealHealthBar);
 
+        //Se llama a la función del script de NinaMana mediante una referencia que pone la barra de mana.
         NinaMana mana = currentPlayer.GetComponent<NinaMana>();
         mana.Initialize(ScenealManaBar);
 
@@ -51,13 +51,14 @@ public class PlayerChangeManagement : MonoBehaviour
             shoot.Initialize(mana);
         }
 
-        //playerMovement.Initialize(ScenealManaBar);
         cameraScript.player = currentPlayer.transform;
         
-
+        //Nos suscribimos a la función HandlePlayerDeath. Sirve porque así se gestiona la muerte desde aquí, pero la condición de muerte
+        //(currentHealth<=0) se encuentra en el script de la vida
         health.OnDeath += HandlePlayerDeath;
         OnPlayerChanged?.Invoke(currentPlayer.transform);
 
+        //Cogemos a todos los phantom del mapa en una array y la recorremos asignandole el transform del player a cada uno (porque va cambiando de jugador)
         Phantom[] phantoms = FindObjectsOfType<Phantom>();
         foreach (Phantom p in phantoms)
         {
@@ -70,6 +71,8 @@ public class PlayerChangeManagement : MonoBehaviour
 
     void Update()
     {
+        //Se espera un segundo antes de seguir con el update. Esto se hace porque antes verificaba
+        //la muerte del jugador antes de tiempo y lo marcaba como muerto
         if (justSpawned)
         {
             spawnTimer -= Time.deltaTime;
@@ -82,17 +85,13 @@ public class PlayerChangeManagement : MonoBehaviour
 
         PlayerMovement playerMovement = currentPlayer.GetComponent<PlayerMovement>();
 
-        /*if (playerMovement.currentHealth <= minHealth)
-        {
-            SceneManager.LoadScene("GameOver");
-            Destroy(currentPlayer);
-        }*/
-
         if (Input.GetKeyDown(KeyCode.X) && canSwitch)
         {
             SwitchCharacter();
         }
 
+        //Sistema en el que mediante la referncia guardada del RespawnPoint, se asigna una nueva posición al player si cae a una altura inferior
+        //a -65, que se puede cambiar.
         if (currentPlayer.transform.position.y < deathYLevel)
         {
             currentPlayer.transform.position = RespawnPoint.transform.position;
@@ -115,6 +114,8 @@ public class PlayerChangeManagement : MonoBehaviour
 
         Destroy(currentPlayer);
 
+        //Aquí se gestiona el cambio mediante una variable bool que nos indica en que personaje estabamos.
+        //A partir de ahí, hace lo mismo que en el start
         if (isRanged)
         {
             currentPlayer = Instantiate(meleePrefab, position, rotation);
@@ -171,10 +172,4 @@ public class PlayerChangeManagement : MonoBehaviour
     {
         canSwitch = true;
     }
-
-    public GameObject GetCurrentPlayer()
-    {
-        return currentPlayer;
-    }
-
 }

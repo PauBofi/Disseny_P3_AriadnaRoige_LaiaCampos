@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
@@ -13,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     float horizontalMovement;
     public AudioClip soundRun;
-    
 
     [Header("Jumping")]
     public float jumpPower = 10f;
@@ -49,62 +49,43 @@ public class PlayerMovement : MonoBehaviour
     [Header("Animator")]
     public Animator animator;
 
-    /*[Header("Health Bar HUD")]
-    public Healthbar healthbar;
-    public int maxHealth = 10;
-    internal int currentHealth;
-    public AudioClip soundHurt;*/
-
-    /*[Header("Mana Bar HUD")]
-    public Manabar manabar;
-    public int maxMana = 8;
-    internal int currentMana;
-    public float manaRegenInterval = 3f;
-    private float manaRegenTimer;*/
-
-
-
-
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        //InitializeHealth();
-        //InitializeMana();
     }
 
     void Update()
     {
+        //Check ground, gravity, wall, and update physics 
         GroundCheck();
         ProcessGravity();
         ProcessWallSlide();
         ProcessWallJump();
+
+        //If he is not walljumping, move and turn normally
         if (!isWallJumping)
         {
             rb.velocity = new Vector2(horizontalMovement * moveSpeed, rb.velocity.y);
             Flip();
         }
+
+        //Animations
         animator.SetFloat("yVelocity", rb.velocity.y);
         animator.SetFloat("magnitude", rb.velocity.magnitude);
-        //animator.SetBool("isShooting",/*bariable de shoot*/);
-
-        /*manaRegenTimer += Time.deltaTime;
-        if (manaRegenTimer >= manaRegenInterval)
-        {
-            RegenerateMana(1);
-            manaRegenTimer = 0f;
-        }*/
     }
 
     private void FixedUpdate()
     {
+        //Movimiento físico
         rb.velocity = new Vector2(horizontalMovement * moveSpeed, rb.velocity.y);
         animator.SetFloat("yVelocity", rb.velocity.y);
     }
 
+    //Salto normal y walljump
     public void Jump(InputAction.CallbackContext context)
     {
+        //Salto normal
         if (jumpsRemaining > 0)
         {
             if (context.performed)
@@ -114,7 +95,6 @@ public class PlayerMovement : MonoBehaviour
                 smokeFX.Play();
                 animator.SetTrigger("jump");
             }
-
             else if (context.canceled)
             {
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
@@ -124,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        //wallJump
+        //Salto en pared
         if (context.performed && wallJumpTimer > 0f)
         {
             isWallJumping = true;
@@ -133,16 +113,17 @@ public class PlayerMovement : MonoBehaviour
             smokeFX.Play();
             animator.SetTrigger("jump");
 
-            //force flip if not looking at right direction
+            //Forzar flip si está mirando al revés
             if (transform.localScale.x != wallJumpDirection)
             {
                 Flip();
             }
 
-            Invoke(nameof(CancelWallJump), wallJumpTime + 0.1f); //0.1 seconds between jumps
+            Invoke(nameof(CancelWallJump), wallJumpTime + 0.1f);
         }
     }
 
+    //Verifica si toca el suelo
     private void GroundCheck()
     {
         if (Physics2D.OverlapBox(groundCheckPos.position, groundCheckSize, 0, groundLayer))
@@ -150,18 +131,19 @@ public class PlayerMovement : MonoBehaviour
             jumpsRemaining = maxJumps;
             isGrounded = true;
         }
-
         else
         {
             isGrounded = false;
         }
     }
 
+    //Verifica si toca una pared
     private bool WallCheck()
     {
         return Physics2D.OverlapBox(wallCheckPos.position, wallCheckSize, 0, wallLayer);
     }
 
+    //Gestiona gravedad y límite de caída
     private void ProcessGravity()
     {
         if (rb.velocity.y < 0)
@@ -169,13 +151,13 @@ public class PlayerMovement : MonoBehaviour
             rb.gravityScale = baseGravity * fallSpeedMultiplier;
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Max(rb.velocity.y, -maxFallSpeed));
         }
-
         else
         {
             rb.gravityScale = baseGravity;
         }
     }
 
+    //Gestiona el deslizamiento en la pared
     private void ProcessWallSlide()
     {
         if (!isGrounded && WallCheck() && horizontalMovement != 0)
@@ -189,6 +171,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //Gestiona salto en pared
     private void ProcessWallJump()
     {
         if (isWallSliding)
@@ -205,17 +188,20 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //Cancela el walljump
     private void CancelWallJump()
     {
         isWallJumping = false;
     }
 
+    //Lee el movimiento horizontal
     public void Move(InputAction.CallbackContext context)
     {
         horizontalMovement = context.ReadValue<Vector2>().x;
         AudioManager.Instance.PlaySFX(soundRun);
     }
 
+    //Gira el personaje
     private void Flip()
     {
         if (isFacingRight && horizontalMovement < 0 || !isFacingRight && horizontalMovement > 0)
@@ -231,53 +217,8 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-    /*public void TakeDamage(int damage)
-    {
-        AudioManager.Instance.PlaySFX(soundHurt);
-        currentHealth -= damage;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        healthbar.SetHealth(currentHealth);
-    }
 
-    public void InitializeHealth()
-    {
-        currentHealth = maxHealth;
-        healthbar.SetMaxHealth(maxHealth);
-        healthbar.SetHealth(currentHealth);
-    }
-
-    public void InitializeMana()
-    {
-        currentMana = maxMana;
-        manabar.SetMaxMana(maxMana);
-        manabar.SetMana(currentMana);
-    }
-
-    public void UseMana(int amount)
-    {
-        currentMana -= amount;
-        currentMana = Mathf.Clamp(currentMana, 0, maxMana);
-        manabar.SetMana(currentMana);
-    }
-
-    public void RegenerateMana(int amount)
-    {
-        if (currentMana < maxMana)
-        {
-            currentMana += amount;
-            currentMana = Mathf.Clamp(currentMana, 0, maxMana);
-            manabar.SetMana(currentMana);
-        }
-    }
-
-    public void Initialize(Manabar manabar)
-    {
-        this.manabar = manabar;
-        InitializeMana();
-    }
-*/
-
-
+    //Dibuja gizmos de debug
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.white;
