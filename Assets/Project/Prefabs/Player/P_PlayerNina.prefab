@@ -67,7 +67,7 @@ GameObject:
   - component: {fileID: 2871340959413240923}
   - component: {fileID: 5148322023254715935}
   m_Layer: 0
-  m_Name: P_Nina
+  m_Name: P_PlayerNina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
